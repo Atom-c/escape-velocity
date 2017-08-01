@@ -17,12 +17,12 @@
 ![Image](./docs/javascript-project-wireframe-atom-c.png)
 
 ## Technologies anticipated
-  Canvas, mostly Vanilla Javascript, with Easel.js, html, and CSS.
+  Canvas, mostly Vanilla JavaScript, with Easel.js, html, and CSS. Canvas will be used to draw the objects on the board, with JavaScript event listeners to handle user input. The game will be fully stylized with CSS.
 
 ### There will be three scripts involved
-  * `board.js` for all the game logic and setup
+  * `board.js` for all the game logic and setup. This will hold the main canvas and the majority of game code
   * `avatar.js` for handling the drawing and movement of the player's avatar
-  * `obstacles.js` for rendering the falling obstacles
+  * `obstacles.js` for rendering the falling obstacles with randomized gaps for the player avatar to exit through
 
 ## Implementation Timeline
 
