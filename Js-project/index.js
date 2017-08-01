@@ -1,11 +1,12 @@
 var canvas = document.getElementById('canvas');
-
 var c = canvas.getContext('2d');
-
-
-
-canvas.width = window.innerWidth;
-canvas.height = window.innerHeight;
+function init () {
+  setInterval(Riser.draw, 10);
+  canvas.width = window.innerWidth;
+  canvas.height = window.innerHeight;
+  riser = new Riser(canvas.width / 2, canvas.height / 2, 1, 1, 30);
+  riser.update();
+}
 
 //riser
 class Riser {
@@ -41,26 +42,31 @@ class Riser {
     switch (event.keyCode) {
       case 37:  // left
       console.log("YEAH PRESSED LEFT!");
-
-        this.x -= 20;
+        console.log(riser);
+        // riser.update();
+        riser.x -= 20;
+        riser.draw();
 
       break;
-      case 97:  // A (left)
+      case 65:  // A (left)
       console.log("YEAH PRESSED THE A KEY!");
-      if (this.x - this.dx > 0){
-        this.x -= this.dx;
+      if (riser.x - riser.dx > 0){
+        riser.x -= riser.dx;
+        riser.draw();
       }
       break;
       case 39:  // right
       console.log("YEAH PRESSED RIGHT!");
-      if (this.x + this.dx < canvas.width){
-        this.x += this.dx;
+      if (riser.x + riser.dx < canvas.width){
+        riser.x += 20;
+        riser.draw();
       }
       break;
-      case 100:  // D (right)
+      case 68:  // D (right)
       console.log("YEAH PRESSED THE D KEY!");
-      if (this.x + this.dx < canvas.width){
-        this.x += this.dx;
+      if (riser.x + riser.dx < canvas.width){
+        riser.x += riser.dx;
+        riser.draw();
       }
       break;
     }
@@ -69,12 +75,13 @@ class Riser {
 }
 //riser
 
+// instantiate riser and init everything
 var riser;
-function init() {
-  riser = new Riser(canvas.width / 2, canvas.height / 2, 1, 1, 30);
-  riser.update()
+// function init() {
 
-}
+  // riser.update()
+
+// }
 
 
 // function animate() {
@@ -86,9 +93,6 @@ function init() {
 init();
 window.addEventListener('keydown', riser.onKeyDown)
 // animate();
-
-setInterval(Riser.draw, 10);
-
 
 
 
