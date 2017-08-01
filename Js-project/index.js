@@ -5,9 +5,6 @@ var c = canvas.getContext('2d');
 canvas.width = window.innerWidth;
 canvas.height = window.innerHeight;
 
-
-
-
 var mouse = {
   x: undefined,
   y: undefined,
@@ -24,18 +21,25 @@ var colorArray = [
   `rgba(255, 108, 87, 0.5)`,
 ];
 
-window.addEventListener('mousemove',
-  function (e) {
-    // console.log(e);
+canvas.addEventListener('mousemove',
+  function (event) {
+    // console.log(event);
     mouse.x = event.x;
     mouse.y = event.y;
 })
 
-window.addEventListener('resize', function () {
+canvas.addEventListener('resize', function () {
   canvas.width = window.innerWidth;
   canvas.height = window.innerHeight;
 
   init();
+})
+
+canvas.addEventListener('keypress', function (event) {
+  var keyCode = event.keyCode;
+  if (keyCode == 37) {
+    
+  }
 })
 
 
@@ -78,6 +82,7 @@ function Circle(x, y, dx, dy, radius) {
     && mouse.y - this.y < 50 && mouse.y - this.y > -50) {
       if (this.radius < this.maxRadius) {
         this.radius += 1;
+
       }
     } else if (this.radius > this.minRadius){
       this.radius -= 1;

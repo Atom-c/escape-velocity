@@ -87,17 +87,22 @@ var maxRadius = 40;
 
 var colorArray = ['rgba(39, 146, 204, 0.3)', 'rgba(75, 126, 153, 0.5)', 'rgba(23, 255, 211, 0.7)', 'rgba(255, 108, 204, 0.3)', 'rgba(255, 108, 87, 0.5)'];
 
-window.addEventListener('mousemove', function (e) {
-  // console.log(e);
+canvas.addEventListener('mousemove', function (event) {
+  // console.log(event);
   mouse.x = event.x;
   mouse.y = event.y;
 });
 
-window.addEventListener('resize', function () {
+canvas.addEventListener('resize', function () {
   canvas.width = window.innerWidth;
   canvas.height = window.innerHeight;
 
   init();
+});
+
+canvas.addEventListener('keypress', function (event) {
+  var keyCode = event.keyCode;
+  if (keyCode == 37) {}
 });
 
 function Circle(x, y, dx, dy, radius) {
