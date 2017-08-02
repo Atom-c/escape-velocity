@@ -77,10 +77,10 @@ function _classCallCheck(instance, Constructor) { if (!(instance instanceof Cons
 var canvas = document.getElementById('canvas');
 var c = canvas.getContext('2d');
 function init() {
-  setInterval(Riser.draw, 10);
+  setInterval(Riser.draw, Math.ceil(1000 / 60));
   canvas.width = window.innerWidth;
   canvas.height = window.innerHeight;
-  riser = new Riser(canvas.width / 2, canvas.height / 2, 1, 1, 30);
+  riser = new Riser(canvas.width / 2, canvas.height / 2, 1, 1, 10);
   riser.update();
 }
 
@@ -100,13 +100,35 @@ var Riser = function () {
   _createClass(Riser, [{
     key: 'update',
     value: function update() {
-      if (this.y + this.radius > canvas.height) {
-        this.dy = -this.dy;
+      if (this.y + this.radius / 1000 < 0) {
+        this.y = 0;
+        this.dy = 0;
       } else {
-        this.dy += 1;
+        this.dy += 0.25;
       }
-      this.y += this.dy;
+      this.y -= this.dy;
       this.draw();
+    }
+  }, {
+    key: 'slide',
+    value: function slide(dir) {
+      if (this.x + this.radius / 1000 < 0) {
+        this.x = 0;
+        this.dx = 1;
+      } else if (this.x + this.radius / 1000 > canvas.width) {
+        this.x = canvas.width;
+        this.dx = 1;
+      } else {
+        if (dir === 'LEFT') {
+          this.dx += 1.25;
+          this.x -= this.dx;
+          this.draw();
+        } else {
+          this.dx -= 1.25;
+          this.x -= this.dx;
+          this.draw();
+        }
+      }
     }
   }, {
     key: 'draw',
@@ -128,31 +150,31 @@ var Riser = function () {
           console.log("YEAH PRESSED LEFT!");
           console.log(riser);
           // riser.update();
-          riser.x -= 20;
-          riser.draw();
+          riser.x -= Math.floor(canvas.width * 0.055);
 
           break;
         case 65:
           // A (left)
           console.log("YEAH PRESSED THE A KEY!");
           if (riser.x - riser.dx > 0) {
-            riser.x -= riser.dx;
+            riser.x -= riser.dx * 15;
             riser.draw();
           }
           break;
         case 39:
           // right
           console.log("YEAH PRESSED RIGHT!");
+          console.log(riser);
           if (riser.x + riser.dx < canvas.width) {
-            riser.x += 20;
-            riser.draw();
+            riser.x += Math.floor(canvas.width * 0.55);
+            // riser.slide("RIGHT");
           }
           break;
         case 68:
           // D (right)
           console.log("YEAH PRESSED THE D KEY!");
           if (riser.x + riser.dx < canvas.width) {
-            riser.x += riser.dx;
+            riser.x += riser.dx * 10;
             riser.draw();
           }
           break;
@@ -175,15 +197,36 @@ var riser;
 // }
 
 
-// function animate() {
-//   requestAnimationFrame(animate);
-//   c.clearRect(0, 0, canvas.width, canvas.height)
-//   riser.update();
-// }
+function animate() {
+  requestAnimationFrame(animate);
+  c.clearRect(0, 0, canvas.width, canvas.height);
+  riser.update();
+}
 
 init();
 window.addEventListener('keydown', riser.onKeyDown);
-// animate();
+animate();
+
+//
+//
+// function pageRender () {
+//   slideAvatar();
+//   riseAvatar();
+// }
+//
+//
+// function drawStuff() {
+//   ref_int setTimeout(pageRender, Math.ceil(1000/60))
+// }
+//
+// function reset() {
+//   clearTimeout(ref_int);
+//   //reset the stuff to old spot
+// }
+//ref_int = requestAnimationFrame(pageRender)
+//
+//cancelAnimationFrame(ref_int)
+//
 
 
 // var mouse = {
