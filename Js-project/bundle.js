@@ -98,13 +98,13 @@ var avatarX = 400,
     firstBlockWidth = 100,
     secondBlockLeft = 300,
     secondBlockWidth = 200,
-    avatarXleft = 25,
-    avatarXright = 25,
+    avatarWidth = 25,
+    avatarHeight = 25,
     firstBlockBottom = 0,
     secondBlockBottom = 0,
     firstBlockHeight = 20,
     secondBlockHeight = 20;
-secondBlockVel = -0.25;
+secondBlockVel = 0.25;
 
 function gameLoop() {
   whatKey();
@@ -115,22 +115,21 @@ function gameLoop() {
 
   // avatarX += velX;
   avatarY += velY;
-  // secondBlockBottom += secondBlockVel
+  secondBlockBottom += 1;
 
   if (avatarY < 0) {
     avatarY = 0;
     velY = 0;
-  } else if (avatarY < 0) {
-    avatarY = 0;
-    velY = 0;
-  } else if (avatarX + avatarXleft < secondBlockLeft || avatarX + avatarXright > secondBlockLeft + secondBlockWidth) {
+  } else if (avatarY > secondBlockHeight || avatarX + avatarWidth < secondBlockLeft || avatarX > secondBlockLeft + secondBlockWidth) {
     velY -= 0.25;
-  } else if ((avatarX + avatarXleft > secondBlockLeft || avatarX + avatarXright < secondBlockLeft + secondBlockWidth) && avatarY < secondBlockHeight) {
-    velY = 0;
+  } else if ((avatarX > secondBlockLeft + secondBlockWidth || avatarX < secondBlockLeft + secondBlockWidth) && avatarY < secondBlockHeight) {
+    velY += 1;
     avatarY = secondBlockHeight;
   }
 
-  var avatar = ctx.fillRect(avatarX, avatarY, avatarXleft, avatarXright);
+  ctx.fillStyle = "blue";
+  var avatar = ctx.fillRect(avatarX, avatarY, avatarWidth, avatarHeight);
+  ctx.fillStyle = "black";
   var firstBlock = ctx.fillRect(firstBlockLeft, firstBlockBottom, firstBlockWidth, firstBlockHeight);
   var secondBlock = ctx.fillRect(secondBlockLeft, secondBlockBottom, secondBlockWidth, secondBlockHeight);
   requestAnimationFrame(gameLoop);
@@ -138,12 +137,27 @@ function gameLoop() {
 
 function whatKey() {
   if (keys[37]) {
-    avatarX -= 12;
+    avatarX -= 6;
   }
   if (keys[39]) {
-    avatarX += 12;
+    avatarX += 6;
   }
 }
+
+// Math.random x 600
+// need 2 to 5 bars across the screen
+// 40 760
+// 140 260 80 120 200
+//
+// or
+//
+// standardize gaps sizing of 40px
+//
+// lines take up 20h full width, spaced out at 60px y height to start
+// so would generate a gap full width by 60px height to start
+// then generate a line, on top of the line would generate 2-4 gaps of 40w by 20h
+// if avatar is within a gaps starting width coordinate + its width (40), it can keep its velY -= 0.25
+// otherwise it matches the downward y velocity += 0.25 of a line.
 
 /***/ })
 /******/ ]);
