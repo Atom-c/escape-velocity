@@ -34,6 +34,7 @@ var avatarX = 400,
   secondBlockBottom = 0,
   firstBlockHeight = 20,
   secondBlockHeight = 20;
+  secondBlockVel = -0.25
 
 
 function gameLoop() {
@@ -43,8 +44,9 @@ function gameLoop() {
   canvas.width = 800;
   canvas.height = 600;
 
-  avatarX += velX;
+  // avatarX += velX;
   avatarY += velY;
+  // secondBlockBottom += secondBlockVel
 
   if (avatarY < 0) {
     avatarY = 0
@@ -52,8 +54,11 @@ function gameLoop() {
   } else if (avatarY < 0) {
     avatarY = 0
     velY = 0
-  } else if (avatarX + avatarXleft < secondBlockLeft && avatarY > secondBlockHeight) {
+  } else if (avatarX + avatarXleft < secondBlockLeft || avatarX + avatarXright > secondBlockLeft + secondBlockWidth) {
       velY -= 0.25;
+  } else if ((avatarX + avatarXleft > secondBlockLeft || avatarX + avatarXright < secondBlockLeft + secondBlockWidth) && avatarY < secondBlockHeight) {
+      velY = 0;
+      avatarY = secondBlockHeight
   }
 
   var avatar = ctx.fillRect(avatarX, avatarY, avatarXleft, avatarXright);
@@ -64,9 +69,9 @@ function gameLoop() {
 
 function whatKey() {
   if (keys[37]) {
-    avatarX -= 20;
+    avatarX -= 12;
   }
   if (keys[39]) {
-    avatarX += 20;
+    avatarX += 12;
   }
 }
