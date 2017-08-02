@@ -72,14 +72,20 @@
 
 var _createClass = function () { function defineProperties(target, props) { for (var i = 0; i < props.length; i++) { var descriptor = props[i]; descriptor.enumerable = descriptor.enumerable || false; descriptor.configurable = true; if ("value" in descriptor) descriptor.writable = true; Object.defineProperty(target, descriptor.key, descriptor); } } return function (Constructor, protoProps, staticProps) { if (protoProps) defineProperties(Constructor.prototype, protoProps); if (staticProps) defineProperties(Constructor, staticProps); return Constructor; }; }();
 
+var _avatar = __webpack_require__(1);
+
+var _avatar2 = _interopRequireDefault(_avatar);
+
+function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { default: obj }; }
+
 function _classCallCheck(instance, Constructor) { if (!(instance instanceof Constructor)) { throw new TypeError("Cannot call a class as a function"); } }
 
 var canvas = document.getElementById('canvas');
 var c = canvas.getContext('2d');
 function init() {
   setInterval(Riser.draw, Math.ceil(1000 / 60));
-  canvas.width = window.innerWidth;
-  canvas.height = window.innerHeight;
+  canvas.width = 700;
+  canvas.height = 500;
   riser = new Riser(canvas.width / 2, canvas.height / 2, 1, 1, 10);
   riser.update();
 }
@@ -157,7 +163,7 @@ var Riser = function () {
           // A (left)
           console.log("YEAH PRESSED THE A KEY!");
           if (riser.x - riser.dx > 0) {
-            riser.x -= riser.dx * 15;
+            riser.x -= riser.dx * 25;
             riser.draw();
           }
           break;
@@ -166,7 +172,7 @@ var Riser = function () {
           console.log("YEAH PRESSED RIGHT!");
           console.log(riser);
           if (riser.x + riser.dx < canvas.width) {
-            riser.x += Math.floor(canvas.width * 0.55);
+            riser.x += Math.floor(canvas.width * 0.08);
             // riser.slide("RIGHT");
           }
           break;
@@ -174,7 +180,7 @@ var Riser = function () {
           // D (right)
           console.log("YEAH PRESSED THE D KEY!");
           if (riser.x + riser.dx < canvas.width) {
-            riser.x += riser.dx * 10;
+            riser.x += riser.dx * 25;
             riser.draw();
           }
           break;
@@ -396,6 +402,12 @@ animate();
 // var dx = (Math.random() - 0.5) * 10;
 // var dy = (Math.random() - 0.5) * 10;
 // var radius = 30;
+
+/***/ }),
+/* 1 */
+/***/ (function(module, exports) {
+
+throw new Error("Module build failed: SyntaxError: Unexpected token (1:9)\n\n\u001b[0m\u001b[31m\u001b[1m>\u001b[22m\u001b[39m\u001b[90m 1 | \u001b[39m\u001b[36mfunction\u001b[39m () {\n \u001b[90m   | \u001b[39m         \u001b[31m\u001b[1m^\u001b[22m\u001b[39m\n \u001b[90m 2 | \u001b[39m  \u001b[36mvar\u001b[39m requestAnimationFrame \u001b[33m=\u001b[39m window\u001b[33m.\u001b[39mrequestAnimationFrame\n \u001b[90m 3 | \u001b[39m}()\u001b[33m;\u001b[39m\n \u001b[90m 4 | \u001b[39m\u001b[0m\n");
 
 /***/ })
 /******/ ]);

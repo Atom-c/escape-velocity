@@ -1,9 +1,12 @@
+import avatar from './lib/avatar'
+
+
 var canvas = document.getElementById('canvas');
 var c = canvas.getContext('2d');
 function init () {
   setInterval(Riser.draw, Math.ceil(1000/60));
-  canvas.width = window.innerWidth;
-  canvas.height = window.innerHeight;
+  canvas.width = 700;
+  canvas.height = 500;
   riser = new Riser(canvas.width / 2, canvas.height / 2, 1, 1, 10);
   riser.update();
 }
@@ -71,7 +74,7 @@ class Riser {
       case 65:  // A (left)
       console.log("YEAH PRESSED THE A KEY!");
       if (riser.x - riser.dx > 0){
-        riser.x -= riser.dx * 15;
+        riser.x -= riser.dx * 25;
         riser.draw();
       }
       break;
@@ -79,14 +82,14 @@ class Riser {
       console.log("YEAH PRESSED RIGHT!");
       console.log(riser);
       if (riser.x + riser.dx < canvas.width){
-        riser.x += Math.floor(canvas.width * 0.55);
+        riser.x += Math.floor(canvas.width * 0.08);
         // riser.slide("RIGHT");
       }
       break;
       case 68:  // D (right)
       console.log("YEAH PRESSED THE D KEY!");
       if (riser.x + riser.dx < canvas.width){
-        riser.x += riser.dx * 10;
+        riser.x += riser.dx * 25;
         riser.draw();
       }
       break;
@@ -114,6 +117,9 @@ function animate() {
 init();
 window.addEventListener('keydown', riser.onKeyDown)
 animate();
+
+
+
 
 
 
