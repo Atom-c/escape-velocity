@@ -117,14 +117,19 @@ function gameLoop() {
   avatarY += velY;
   secondBlockBottom += 1;
 
+  if (avatarY > canvas.height) {
+    alert("OH NO!");
+  }
+
   if (avatarY < 0) {
     avatarY = 0;
     velY = 0;
+  } else if (secondBlockBottom - avatarY < 10 && secondBlockBottom - avatarY > -10 && (avatarX > secondBlockLeft && avatarX + avatarWidth < secondBlockLeft + secondBlockWidth || avatarX < secondBlockLeft)) {
+    avatarY = secondBlockHeight + secondBlockBottom;
   } else if (avatarY > secondBlockHeight || avatarX + avatarWidth < secondBlockLeft || avatarX > secondBlockLeft + secondBlockWidth) {
     velY -= 0.25;
-  } else if ((avatarX > secondBlockLeft + secondBlockWidth || avatarX < secondBlockLeft + secondBlockWidth) && avatarY < secondBlockHeight) {
+  } else if ((avatarX > secondBlockLeft + secondBlockWidth || avatarX < secondBlockLeft) && avatarY < secondBlockHeight) {
     velY += 1;
-    avatarY = secondBlockHeight;
   }
 
   ctx.fillStyle = "blue";
