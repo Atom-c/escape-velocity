@@ -1,5 +1,8 @@
+import Obstacle from './lib/obstacles';
+// new Obstacle();
+
 (function () {
-  var requestAnimationFrame = window.requestAnimationFrame || window.mozRequestAnimationFrame || window.webkitRequestAnimationFrame || window.msRequestAnimationFrame;
+  var requestAnimationFrame = window.requestAnimationFrame;
   window.requestAnimationFrame = requestAnimationFrame;
 })();
 
@@ -49,26 +52,33 @@ function gameLoop() {
   secondBlockBottom += 1
 
   if (avatarY > canvas.height) {
-    alert("OH NO!")
+    var ohNo = true
   }
 
+  if (ohNo) {
+    alert("OH NO!");
+    ohNo = false;
+  }
 
   if (avatarY < 0) {
     avatarY = 0
     velY = 0
-  } else if ( (secondBlockBottom - avatarY < 10 && secondBlockBottom - avatarY > -10) && ( (avatarX > secondBlockLeft && avatarX + avatarWidth < secondBlockLeft + secondBlockWidth) || (avatarX < secondBlockLeft) ) ) {
+  } else if ( (secondBlockBottom - avatarY < 10 && secondBlockBottom - avatarY > -10) && ( (avatarX > secondBlockLeft && avatarX + avatarWidth < secondBlockLeft + secondBlockWidth)  ) ) {
     avatarY = secondBlockHeight+ secondBlockBottom;
   } else if (avatarY > secondBlockHeight || avatarX + avatarWidth < secondBlockLeft || avatarX > secondBlockLeft + secondBlockWidth) {
       velY -= 0.25;
   } else if ((avatarX > secondBlockLeft + secondBlockWidth || avatarX < secondBlockLeft) && avatarY < secondBlockHeight) {
-      velY += 1;
+      // velY += 1;
   }
 
   ctx.fillStyle = "blue"
   var avatar = ctx.fillRect(avatarX, avatarY, avatarWidth, avatarHeight);
+
   ctx.fillStyle = "black"
   var firstBlock =   ctx.fillRect(firstBlockLeft, firstBlockBottom, firstBlockWidth, firstBlockHeight);
+
   var secondBlock = ctx.fillRect(secondBlockLeft, secondBlockBottom, secondBlockWidth, secondBlockHeight);
+
   requestAnimationFrame(gameLoop);
 }
 
@@ -80,6 +90,8 @@ function whatKey() {
     avatarX += 6;
   }
 }
+
+
 
 // Math.random x 600
 // need 2 to 5 bars across the screen

@@ -70,8 +70,16 @@
 "use strict";
 
 
+var _obstacles = __webpack_require__(2);
+
+var _obstacles2 = _interopRequireDefault(_obstacles);
+
+function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { default: obj }; }
+
+// new Obstacle();
+
 (function () {
-  var requestAnimationFrame = window.requestAnimationFrame || window.mozRequestAnimationFrame || window.webkitRequestAnimationFrame || window.msRequestAnimationFrame;
+  var requestAnimationFrame = window.requestAnimationFrame;
   window.requestAnimationFrame = requestAnimationFrame;
 })();
 
@@ -118,25 +126,33 @@ function gameLoop() {
   secondBlockBottom += 1;
 
   if (avatarY > canvas.height) {
+    var ohNo = true;
+  }
+
+  if (ohNo) {
     alert("OH NO!");
+    ohNo = false;
   }
 
   if (avatarY < 0) {
     avatarY = 0;
     velY = 0;
-  } else if (secondBlockBottom - avatarY < 10 && secondBlockBottom - avatarY > -10 && (avatarX > secondBlockLeft && avatarX + avatarWidth < secondBlockLeft + secondBlockWidth || avatarX < secondBlockLeft)) {
+  } else if (secondBlockBottom - avatarY < 10 && secondBlockBottom - avatarY > -10 && avatarX > secondBlockLeft && avatarX + avatarWidth < secondBlockLeft + secondBlockWidth) {
     avatarY = secondBlockHeight + secondBlockBottom;
   } else if (avatarY > secondBlockHeight || avatarX + avatarWidth < secondBlockLeft || avatarX > secondBlockLeft + secondBlockWidth) {
     velY -= 0.25;
   } else if ((avatarX > secondBlockLeft + secondBlockWidth || avatarX < secondBlockLeft) && avatarY < secondBlockHeight) {
-    velY += 1;
+    // velY += 1;
   }
 
   ctx.fillStyle = "blue";
   var avatar = ctx.fillRect(avatarX, avatarY, avatarWidth, avatarHeight);
+
   ctx.fillStyle = "black";
   var firstBlock = ctx.fillRect(firstBlockLeft, firstBlockBottom, firstBlockWidth, firstBlockHeight);
+
   var secondBlock = ctx.fillRect(secondBlockLeft, secondBlockBottom, secondBlockWidth, secondBlockHeight);
+
   requestAnimationFrame(gameLoop);
 }
 
@@ -163,6 +179,32 @@ function whatKey() {
 // then generate a line, on top of the line would generate 2-4 gaps of 40w by 20h
 // if avatar is within a gaps starting width coordinate + its width (40), it can keep its velY -= 0.25
 // otherwise it matches the downward y velocity += 0.25 of a line.
+
+/***/ }),
+/* 1 */,
+/* 2 */
+/***/ (function(module, exports, __webpack_require__) {
+
+"use strict";
+
+
+Object.defineProperty(exports, "__esModule", {
+  value: true
+});
+
+function _classCallCheck(instance, Constructor) { if (!(instance instanceof Constructor)) { throw new TypeError("Cannot call a class as a function"); } }
+
+var Obstacle = function Obstacle(blockX, blockWidth, blockY, blockHeight, blockVel) {
+  _classCallCheck(this, Obstacle);
+
+  this.blockX = blockX;
+  this.blockWidth = blockWidth;
+  this.blockY = blockY;
+  this.blockHeight = blockHeight;
+  this.blockVel = blockVel;
+};
+
+exports.default = Obstacle;
 
 /***/ })
 /******/ ]);
