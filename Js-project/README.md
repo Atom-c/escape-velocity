@@ -3,10 +3,8 @@
 ## Background
   The player controls an avatar at a constant speed trying to wait for rescue matching the pull of a black hold just off the bottom of the screen. Obstacles caught in the pull will be heading toward the player, pushing the player further down the screen. Quick relfexes will allow the player to survive without getting pushed to the bottom of the screen and into black hole.
 
-## Animations
-![Image](./docs/Escape-Velocity-Gameplay-Atom-C.gif)
-
 ## Basic Gameplay
+![Image](./docs/Escape-Velocity-Gameplay-Atom-C.gif)
 
 ## Technologies employed
   The game was fully developed in just a few short days with Vanilla JavaScript, HTML5 Canvas, and CSS3 only. No external libraries were used.
@@ -50,6 +48,6 @@
 
 
 ### Bonus Features (TBD)
-  - [ ] Traps for the player to drop downward out of with `S` or `down arrow key`
   - [ ] Increasing levels of complexity and complications
   - [ ] "Levels" with background changes as time goes on and the difficulty jumps
+  - [ ] Traps for the player to drop downward out of with `S` or `down arrow key`

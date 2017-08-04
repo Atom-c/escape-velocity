@@ -39,7 +39,8 @@ var avatarX = 400,
 
 function gameLoop() {
 
-  counter++;;
+  if (lost === false)
+  {counter++;}
 
   var canvas = document.getElementById("canvas");
   var ctx = canvas.getContext("2d");
@@ -55,11 +56,15 @@ function gameLoop() {
     ctx.font = "60px courier";
     ctx.shadowBlur = 20;
     ctx.shadowColor = "red";
-    ctx.strokeStyle= "green"
     ctx.fillStyle= "red";
     ctx.fillText(`The black hole got you!`, 3, 335);
     lost = true;
-    
+
+    ctx.font = "25px courier";
+    ctx.shadowBlur = 15;
+    ctx.shadowColor = "yellow";
+    ctx.fillStyle= "yellow";
+    ctx.fillText(`You lasted: ${Math.floor(counter * 1.5)} stasis units`, 220, 500);
   }
   //___________________
 
@@ -102,7 +107,8 @@ function gameLoop() {
       (avatarX + avatarWidth - 3 > obstacle.blockX && avatarX + 3 < obstacle.blockX + obstacle.blockWidth)
       )
     )
-      { avatarY = obstacle.blockHeight + obstacle.blockY; }
+      { if (lost === false)
+        {avatarY = obstacle.blockHeight + obstacle.blockY;} }
 
 
 
@@ -116,15 +122,19 @@ function gameLoop() {
 
 //Le Score
   ctx.font = "30px courier";
-  ctx.strokeStyle= "green"
+  ctx.strokeStyle= "cyan"
   ctx.fillStyle= "cyan";
   ctx.strokeText(`staying power: ${Math.floor(counter * 1.5)}`, 10, 35);
 
-  ctx.fillText(`height: ${(575 - avatarY + avatarHeight)}`, 500, 35);
+  ctx.fillText(`height: ${(578 - avatarY + avatarHeight)}`, 500, 35);
 
 //________
 
   requestAnimationFrame(gameLoop);
+}
+
+if (lost) {
+
 }
 
 function whatKey() {
