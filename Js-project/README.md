@@ -4,7 +4,7 @@
   The player controls an avatar at a constant speed trying to wait for rescue matching the pull of a black hold just off the bottom of the screen. Obstacles caught in the pull will be heading toward the player, pushing the player further down the screen. Quick relfexes will allow the player to survive without getting pushed to the bottom of the screen and into black hole.
 
 ## Animations
-![Image](./docs/javascript-project-wireframe-atom-c.png)
+![Image](./docs/Escape-Velocity-Gameplay-Atom-C.gif)
 
 ## Basic Gameplay
 
