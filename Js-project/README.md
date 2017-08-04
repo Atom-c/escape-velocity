@@ -12,7 +12,7 @@
   The game was fully developed in just a few short days with Vanilla JavaScript, HTML5 Canvas, and CSS3 only. No external libraries were used.
 
 ### Event Listeners for Input
-  When keys are depressed they set an index in an otherwise-empty `keys` array to the true boolean. When the key is no longer being pressed, the state of that key is changed to false. This allows for smooth controlling of the avatar.
+  When keys are depressed they set an index in an otherwise-empty `keys` array to the true boolean. When the key is no longer being pressed, the state of that key is changed to false and a separate function is called. This allows for smooth controlling of the avatar.
 
   ```js
   window.addEventListener("keydown", function (e) {
