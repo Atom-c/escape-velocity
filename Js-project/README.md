@@ -8,7 +8,6 @@
 
   - [ ] Page will open with instructions and a game board
   - [ ] Player will be able to control sideways movement of avatar
-  - [ ] Player will automatically head directly to the top of the screen
   - [ ] Obstacles the player must get through will fall from the top of the screen
   - [ ] Player will be able to see their score
   - [ ] Will have a production README with GIFs and code

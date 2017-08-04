@@ -5,8 +5,20 @@
     <title>Something</title>
     <style type="text/css">
       canvas {
+        position: relative;
+        margin-left: 25%;
+        margin-top: 5%;
         border: solid 1px black;
-        /*background-color: black;*/
+        background-color: rgba(0,0,0,1.0);
+        z-index: 9000
+      }
+      #backCanvas {
+        position: fixed;
+        background-color: rgba(0,0,0,1.0);
+        box-shadow: blue, 2px, 2px;
+        margin-left: 0;
+        margin-top: 0;
+        z-index: 2
       }
       body {
         margin: 0;
@@ -15,7 +27,7 @@
   </head>
   <body>
     <main>
-      <!-- <h1>Site</h1> -->
+      <canvas id="backCanvas"></canvas>
       <canvas id="canvas"></canvas>
     </main>
     <script src="./bundle.js" charset="utf-8"></script>
