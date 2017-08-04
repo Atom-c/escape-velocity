@@ -13,7 +13,7 @@
   - [ ] Will have a production README with GIFs and code
 
 ## Wireframe base
-![Image](./docs/javascript-project-wireframe-atom-c.png)
+![Image](./javascript-project-wireframe-atom-c.png)
 
 ## Technologies anticipated
   Canvas, mostly Vanilla JavaScript, with Easel.js, html, and CSS. Canvas will be used to draw the objects on the board, with JavaScript event listeners to handle user input. The game will be fully stylized with CSS.
