@@ -53,18 +53,18 @@ function gameLoop() {
 
   // DEATH IMPLENTATION
   if (avatarY > canvas.height) {
-    ctx.font = "60px courier";
+    ctx.font = "55px courier";
     ctx.shadowBlur = 20;
     ctx.shadowColor = "red";
-    ctx.fillStyle= "red";
-    ctx.fillText(`The black hole got you!`, 3, 335);
+    ctx.fillStyle= `rgba(255, 108, 87, 1.0)`;
+    ctx.fillText(`The black hole got you!`, 28, 335);
     lost = true;
 
     ctx.font = "25px courier";
     ctx.shadowBlur = 15;
-    ctx.shadowColor = "yellow";
-    ctx.fillStyle= "yellow";
-    ctx.fillText(`You lasted: ${Math.floor(counter * 1.5)} stasis units`, 220, 500);
+    ctx.shadowColor = `rgba(255, 108, 204, 1)`;
+    ctx.fillStyle= "rgba(255, 108, 204, 1)";
+    ctx.fillText(`You lasted ${Math.floor(counter * 1.5)} stasis units!`, 210, 500);
   }
   //___________________
 
@@ -122,7 +122,7 @@ function gameLoop() {
 
 //Le Score
   ctx.font = "30px courier";
-  ctx.strokeStyle= "cyan"
+  ctx.strokeStyle= `rgba(23, 255, 211, 1.0)`
   ctx.fillStyle= "cyan";
   ctx.strokeText(`staying power: ${Math.floor(counter * 1.5)}`, 10, 35);
 
