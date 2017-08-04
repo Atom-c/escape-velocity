@@ -90,9 +90,8 @@ function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { de
 window.onload = function init() {
   var canvas = document.getElementById("canvas");
   var ctx = canvas.getContext("2d");
-  var avObj = new _avatar2.default(450, 350, 20, 0, ctx);
   (0, _background.background)();
-  gameLoop(avObj);
+  gameLoop();
 };
 
 window.addEventListener("keydown", function (e) {
@@ -110,9 +109,10 @@ var avatarX = 400,
     avatarHeight = 25,
     keys = [],
     arr = [],
+    lost = false,
     counter = 0;
 
-function gameLoop(avObj) {
+function gameLoop() {
 
   counter++;;
 
@@ -130,17 +130,13 @@ function gameLoop(avObj) {
     ctx.shadowColor = "red";
     ctx.strokeStyle = "green";
     ctx.fillStyle = "red";
-    ctx.fillText('The black hole got you!', 0, 335);
+    ctx.fillText('The black hole got you!', 3, 335);
+    lost = true;
   }
-
-  // if (ohNo) {
-  //   alert("OH NO!");
-  //   ohNo = false;
-  // }
   //___________________
 
 
-  whatKey(avObj);
+  whatKey();
 
   ctx.shadowBlur = 15;
   ctx.shadowColor = "white";
@@ -189,7 +185,7 @@ function gameLoop(avObj) {
   requestAnimationFrame(gameLoop);
 }
 
-function whatKey(avObj) {
+function whatKey() {
   if (keys[37]) {
     if (avatarX - 12 > 0) {
       avatarX -= 12;
@@ -262,6 +258,7 @@ function whatKey(avObj) {
 
 // most recently trimmed
 
+// var avObj = new Avatar(450, 350, 20, 0, ctx)
 
 // console.log(avObj);
 // whatKey();
