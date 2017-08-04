@@ -150,9 +150,19 @@ function gameLoop() {
   var bX = Math.floor(Math.random(10) * 100) * (counter % 50) % 800;
 
   if (counter % 30 === 0) {
-    arr.push(new _obstacles2.default(bX, 0, 280, 3, 6, ctx));
-    arr.push(new _obstacles2.default(bX * (counter % 33), 0, 330, 3, 6, ctx));
-    arr.push(new _obstacles2.default(bX * (counter % 14), 0, 180, 3, 6, ctx));
+    if (counter * 1.5 < 5000) {
+      arr.push(new _obstacles2.default(bX, 0, 280, 3, 6, ctx));
+      arr.push(new _obstacles2.default(bX * (counter % 33), 0, 330, 3, 6, ctx));
+      arr.push(new _obstacles2.default(bX * (counter % 14), 0, 180, 3, 6, ctx));
+    } else if (counter * 1.5 < 10000) {
+      arr.push(new _obstacles2.default(bX, 0, 280, 3, 8, ctx));
+      arr.push(new _obstacles2.default(bX * (counter % 33), 0, 330, 3, 8, ctx));
+      arr.push(new _obstacles2.default(bX * (counter % 14), 0, 180, 3, 8, ctx));
+    } else if (counter * 1.5 > 10000) {
+      arr.push(new _obstacles2.default(bX, 0, 280, 3, 10, ctx));
+      arr.push(new _obstacles2.default(bX * (counter % 33), 0, 330, 3, 10, ctx));
+      arr.push(new _obstacles2.default(bX * (counter % 14), 0, 180, 3, 10, ctx));
+    }
   }
 
   arr.forEach(function (obstacle) {
@@ -205,12 +215,12 @@ function whatKey() {
   }
   if (keys[65]) {
     if (avatarX - 6 > 0) {
-      avatarX -= 6;
+      avatarX -= 3;
     }
   }
   if (keys[68]) {
     if (avatarX + avatarWidth + 6 < 800) {
-      avatarX += 6;
+      avatarX += 3;
     }
   }
 }
