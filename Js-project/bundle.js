@@ -156,9 +156,9 @@ function gameLoop(avObj) {
   var bX = Math.floor(Math.random(10) * 100) * (counter % 50) % 800;
 
   if (counter % 30 === 0) {
-    arr.push(new _obstacles2.default(bX, 0, 280, 20, 3, ctx));
-    arr.push(new _obstacles2.default(bX * (counter % 33), 0, 330, 20, 3, ctx));
-    arr.push(new _obstacles2.default(bX * (counter % 14), 0, 180, 20, 3, ctx));
+    arr.push(new _obstacles2.default(bX, 0, 280, 20, 6, ctx));
+    arr.push(new _obstacles2.default(bX * (counter % 33), 0, 330, 20, 6, ctx));
+    arr.push(new _obstacles2.default(bX * (counter % 14), 0, 180, 20, 6, ctx));
     // arr.push(new Obstacle(100 + counter, 0, 80, 20, (1), ctx))
   }
 
@@ -197,23 +197,23 @@ function gameLoop(avObj) {
   //Le Score
   ctx.font = "30px courier";
   ctx.strokeStyle = "green";
-  ctx.strokeText('climb score: ' + Math.floor(counter * 1.5), 10, canvas.height - 5);
+  ctx.strokeText('staying power: ' + Math.floor(counter * 1.5), 10, canvas.height - 5);
   //________
 
-
+  console.log(arr);
   requestAnimationFrame(gameLoop);
 }
 
 function whatKey(avObj) {
   if (keys[37]) {
-    avatarX -= 6;
+    avatarX -= 12;
     // avObj.avatarX -= 6;
     // console.log(avObj)
     // console.log(avObj.avatarX);
     // avObj.draw();
   }
   if (keys[39]) {
-    avatarX += 6;
+    avatarX += 12;
     // avObj.avatarX += 6;
     // avObj.draw();
   }
