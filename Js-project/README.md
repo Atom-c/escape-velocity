@@ -1,58 +1,52 @@
-# Cavescape
+# Escape Velocity
 
 ## Background
-  The player controls an avatar that is automatically rising to the top of the screen at a set rate. Quick relfexes will allow the player to survive without getting pushed to the bottom of the screen by falling obstacles. Working title is Cavescape, with a planned theme of rising up out of the water.
+  The player controls an avatar at a constant speed trying to wait for rescue matching the pull of a black hold just off the bottom of the screen. Obstacles caught in the pull will be heading toward the player, pushing the player further down the screen. Quick relfexes will allow the player to survive without getting pushed to the bottom of the screen and into black hole.
 
-
-## Functions & MVP
-
-  - [ ] Page will open with instructions and a game board
-  - [ ] Player will be able to control sideways movement of avatar
-  - [ ] Obstacles the player must get through will fall from the top of the screen
-  - [ ] Player will be able to see their score
-  - [ ] Will have a production README with GIFs and code
-
-## Wireframe base
+## Animations
 ![Image](./docs/javascript-project-wireframe-atom-c.png)
 
-## Technologies anticipated
-  Canvas, mostly Vanilla JavaScript, with Easel.js, html, and CSS. Canvas will be used to draw the objects on the board, with JavaScript event listeners to handle user input. The game will be fully stylized with CSS.
+## Basic Gameplay
 
-### There will be three scripts involved
-  * `board.js` for all the game logic and setup. This will hold the main canvas and the majority of game code
-  * `avatar.js` for handling the drawing and movement of the player's avatar
-  * `obstacles.js` for rendering the falling obstacles with randomized gaps for the player avatar to exit through
+## Technologies employed
+  The game was fully developed in just a few short days with Vanilla JavaScript, HTML5 Canvas, and CSS3 only. No external libraries were used.
 
-## Implementation Timeline
+### Event Listeners for Input
+  When keys are depressed they set an index in an otherwise-empty `keys` array to the true boolean. When the key is no longer being pressed, the state of that key is changed to false. This allows for smooth controlling of the avatar.
 
-### Day 1: Set up initial canvas and some base functionality
+  ```js
+  window.addEventListener("keydown", function (e) {
+    keys[e.keyCode] = true;
+  });
+  window.addEventListener("keyup", function (e) {
+    keys[e.keyCode] = false;
 
-**Objective:** Learn Canvas and Easel basics
-  - drawing of the avatar and board
-  - basic styling for the app and avatar
-  - add basic instructions to the screen
+      ...
 
-### Day 2: Implement movement & obstacle logic
+  function whatKey() {
+    if (keys[37]) {
+      if (avatarX - 12 > 0)
+      {avatarX -= 12;}
 
-**Objective:** Instantiate movement and random obstacle drawing
-  - avatar can move left and right
-  - obstacles will have enough random gaps to be challenging
-  - basic styling for the obstacles
+      ...
+  });
+  ```
 
-### Day 3: Forge objective consequences
+### Obstacle Class
+  `obstacle` handles the boilerplate for generating obstacles to spawn on the screen in random locations. The main challenge here was creating a balanced set of obstacles for each screen line so the player has ample chance to dodge but also has a challenge. The context is passed into `Obstacle`'s constructor function so multiple obstacles can be drawn at will.
 
-**Objective:** Get obstacles falling on the screen
-  - work out timing of obstacles
-  - work out speed of player avatar
-  - make game end if player gets pushed to the bottom by an obstacle
+  ```js
+  arr.push(new Obstacle(randomizerVar, 0, 280, 3, (6), ctx))
+
+      ...
+
+  class Obstacle {
+    constructor(blockX, blockY, blockWidth, blockHeight, blockVel, context) {
+      ...
+    }
+  ```
 
 
-### Day 4: Further stylize balance game
-
-  **Objective:** Complete Game
-  - implement time/distance-based score
-  - make sure game works by the end of the day
-  - make sure game is fun
 
 
 ### Bonus Features (TBD)
