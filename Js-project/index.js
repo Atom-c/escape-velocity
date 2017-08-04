@@ -25,36 +25,40 @@ window.addEventListener("keyup", function (e) {
 
 
 var avatarX = 400,
-  avatarY = 300,
-  velX = 0,
-  velY = 0,
-  keys = [],
-  maxSpeed = 10,
+    avatarY = 300,
+    velX = 0,
+    velY = 0,
 
-  avatarWidth = 25,
-  avatarHeight = 25,
+    avatarWidth = 25,
+    avatarHeight = 25,
 
-  arr = [],
-  counter = 0;
+    keys = [],
+    arr = [],
+    counter = 0;
 
 
 function gameLoop(avObj) {
-  // console.log(avObj);
+
   counter++;;
-  // whatKey();
+
   var canvas = document.getElementById("canvas");
   var ctx = canvas.getContext("2d");
   canvas.width = 800;
   canvas.height = 600;
 
-  // avatarX += velX;
+
   avatarY += velY;
-  // secondBlockY += 1
+
 
   // DEATH IMPLENTATION
-  // if (avatarY > canvas.height) {
-  //   var ohNo = true
-  // }
+  if (avatarY > canvas.height) {
+    ctx.font = "60px courier";
+    ctx.shadowBlur = 20;
+    ctx.shadowColor = "red";
+    ctx.strokeStyle= "green"
+    ctx.fillStyle= "red";
+    ctx.fillText(`The black hole got you!`, 0, 335);
+  }
 
   // if (ohNo) {
   //   alert("OH NO!");
@@ -62,15 +66,9 @@ function gameLoop(avObj) {
   // }
   //___________________
 
-  // if (avatarY > 0)
-  // { velY -= 0.05; }
 
-
-  // ctx.fillStyle = "red"
-
-  // avObj.draw();
   whatKey(avObj);
-  // ctx.fillStyle = "white"
+
   ctx.shadowBlur = 15;
   ctx.shadowColor = "white";
   var avatar = ctx.fillRect(avatarX, avatarY, avatarWidth, avatarHeight);
@@ -80,21 +78,21 @@ function gameLoop(avObj) {
 
   ctx.fillStyle = "black"
 
-  // var secondBlock = ctx.fillRect(secondBlockLeft, secondBlockY, secondBlockWidth, secondBlockHeight);
+
   var bX = Math.floor(Math.random(10) * 100) * (counter % 50) % 800
 
   if (counter % 30 === 0) {
-    arr.push(new Obstacle(bX, 0, 280, 20, (6), ctx))
-    arr.push(new Obstacle(bX * (counter % 33), 0, 330, 20, (6), ctx))
-    arr.push(new Obstacle(bX * (counter % 14), 0, 180, 20, (6), ctx))
-    // arr.push(new Obstacle(100 + counter, 0, 80, 20, (1), ctx))
+    arr.push(new Obstacle(bX, 0, 280, 3, (6), ctx))
+    arr.push(new Obstacle(bX * (counter % 33), 0, 330, 3, (6), ctx))
+    arr.push(new Obstacle(bX * (counter % 14), 0, 180, 3, (6), ctx))
+
   }
 
 
   arr.forEach((obstacle) => {
 
     obstacle.blockY = obstacle.blockY + obstacle.blockVel
-    // console.log(obstacle.blockX, obstacle.blockWidth);
+
     obstacle.draw();
 
     if (avatarY < 0)
@@ -104,52 +102,44 @@ function gameLoop(avObj) {
     else if (
       (obstacle.blockY - avatarY < 10 && obstacle.blockY - avatarY > -10)
       && (
-      (avatarX > obstacle.blockX && avatarX + avatarWidth < obstacle.blockX + obstacle.blockWidth)
+      (avatarX + avatarWidth - 3 > obstacle.blockX && avatarX + 3 < obstacle.blockX + obstacle.blockWidth)
       )
     )
       { avatarY = obstacle.blockHeight + obstacle.blockY; }
 
-    // else if (avatarY > obstacle.blockHeight
-    //   || avatarX + avatarWidth < obstacle.blockX
-    //   || avatarX > obstacle.blockX + obstacle.blockWidth)
-    //     { velY -= 0.025; }
 
-    // else if (
-    //   (avatarX > obstacle.blockX + obstacle.blockWidth
-    //   || avatarX < obstacle.blockX)
-    //     && avatarY > obstacle.blockY + obstacle.blockHeight + 10)
-    //     { avatarY += 3; }
 
     if (arr.length % 27 === 0) {
       arr.shift();
       arr.shift();
       arr.shift();
     }
-    // console.log(arr);
+
   })
 
 //Le Score
   ctx.font = "30px courier";
   ctx.strokeStyle= "green"
-  ctx.strokeText(`staying power: ${Math.floor(counter * 1.5)}`, 10, canvas.height - 5);
+  ctx.fillStyle= "cyan";
+  ctx.strokeText(`staying power: ${Math.floor(counter * 1.5)}`, 10, 35);
+
+  ctx.fillText(`height: ${(575 - avatarY + avatarHeight)}`, 500, 35);
+
 //________
 
-  console.log(arr);
   requestAnimationFrame(gameLoop);
 }
 
 function whatKey(avObj) {
   if (keys[37]) {
-    avatarX -= 12;
-    // avObj.avatarX -= 6;
-    // console.log(avObj)
-    // console.log(avObj.avatarX);
-    // avObj.draw();
+    if (avatarX - 12 > 0)
+    {avatarX -= 12;}
+
   }
   if (keys[39]) {
-    avatarX += 12;
-    // avObj.avatarX += 6;
-    // avObj.draw();
+    if (avatarX + avatarWidth + 12 < 800)
+    {avatarX += 12;}
+
   }
 }
 
@@ -236,3 +226,47 @@ function whatKey(avObj) {
 //     && avatarY < secondBlockHeight) {
 //     // velY += 1;
 // }
+
+
+
+
+
+
+
+
+
+// most recently trimmed
+
+
+// console.log(avObj);
+// whatKey();
+// avatarX += velX;
+// secondBlockY += 1
+// if (avatarY > 0)
+// { velY -= 0.05; }
+
+
+// ctx.fillStyle = "red"
+
+// avObj.draw();
+// ctx.fillStyle = "white"
+// var secondBlock = ctx.fillRect(secondBlockLeft, secondBlockY, secondBlockWidth, secondBlockHeight);
+// arr.push(new Obstacle(100 + counter, 0, 80, 20, (1), ctx))
+// console.log(obstacle.blockX, obstacle.blockWidth);
+// else if (avatarY > obstacle.blockHeight
+  //   || avatarX + avatarWidth < obstacle.blockX
+  //   || avatarX > obstacle.blockX + obstacle.blockWidth)
+  //     { velY -= 0.025; }
+
+  // else if (
+  //   (avatarX > obstacle.blockX + obstacle.blockWidth
+  //   || avatarX < obstacle.blockX)
+  //     && avatarY > obstacle.blockY + obstacle.blockHeight + 10)
+  //     { avatarY += 3; }
+// console.log(arr);
+// avObj.avatarX -= 6;
+  // console.log(avObj)
+  // console.log(avObj.avatarX);
+  // avObj.draw();
+// avObj.avatarX += 6;
+  // avObj.draw();

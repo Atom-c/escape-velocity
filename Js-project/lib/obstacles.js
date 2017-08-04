@@ -12,6 +12,7 @@ class Obstacle {
   }
 
   draw() {
+    this.context.fillStyle = "cyan";
     this.context.shadowBlur = 20;
     this.context.shadowColor = "cyan";
     this.context.fillRect(this.blockX, this.blockY, this.blockWidth, this.blockHeight);
