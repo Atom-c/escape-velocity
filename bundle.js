@@ -74,11 +74,7 @@ var _obstacles = __webpack_require__(1);
 
 var _obstacles2 = _interopRequireDefault(_obstacles);
 
-var _avatar = __webpack_require__(2);
-
-var _avatar2 = _interopRequireDefault(_avatar);
-
-var _background = __webpack_require__(3);
+var _background = __webpack_require__(2);
 
 function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { default: obj }; }
 
@@ -207,102 +203,17 @@ function whatKey() {
       avatarX += 12;
     }
   }
+  if (keys[65]) {
+    if (avatarX - 6 > 0) {
+      avatarX -= 6;
+    }
+  }
+  if (keys[68]) {
+    if (avatarX + avatarWidth + 6 < 800) {
+      avatarX += 6;
+    }
+  }
 }
-
-// firstBlockLeft = 0,
-// firstBlockWidth = 100,
-// secondBlockLeft = 300,
-// secondBlockWidth = 200,
-// firstBlockBottom = 0,
-// secondBlockY = 0,
-// firstBlockHeight = 20,
-// secondBlockHeight = 20,
-// secondBlockVel = 0.25,
-
-
-// let gap;
-// for (var i = 0; i < 2; i++) {
-//   gap = 10// Math.floor(Math.random(10) * 100 / 10) * 2
-//   new Obstacle((100 * i + i * gap), 0, 80, 20, (1 + counter), ctx)
-//   // console.log(new Obstacle((100 * i + i * gap), 0, 80, 20, (1 + counter), ctx))
-// }
-
-// Math.random x 600
-// need 2 to 5 bars across the screen
-// 40 760
-// 140 260 80 120 200
-//
-// or
-//
-// standardize gaps sizing of 40px
-//
-// lines take up 20h full width, spaced out at 60px y height to start
-// so would generate a gap full width by 60px height to start
-// then generate a line, on top of the line would generate 2-4 gaps of 40w by 20h
-// if avatar is within a gaps starting width coordinate + its width (40), it can keep its velY -= 0.25
-// otherwise it matches the downward y velocity += 0.25 of a line.
-
-
-// THINGS NEEDED TO KNOW
-
-
-// } else if (
-//     (secondBlockY - avatarY < 10 && secondBlockY - avatarY > -10)
-//   && (
-//     (avatarX > secondBlockLeft && avatarX + avatarWidth < secondBlockLeft + secondBlockWidth)
-//   )
-// ) {
-//   avatarY = secondBlockHeight+ secondBlockY;
-//
-// } else if (avatarY > secondBlockHeight
-//   || avatarX + avatarWidth < secondBlockLeft
-//   || avatarX > secondBlockLeft + secondBlockWidth) {
-//     velY -= 0.25;
-//
-// } else if (
-//   (avatarX > secondBlockLeft + secondBlockWidth
-//   || avatarX < secondBlockLeft)
-//     && avatarY < secondBlockHeight) {
-//     // velY += 1;
-// }
-
-
-// most recently trimmed
-
-// var avObj = new Avatar(450, 350, 20, 0, ctx)
-
-// console.log(avObj);
-// whatKey();
-// avatarX += velX;
-// secondBlockY += 1
-// if (avatarY > 0)
-// { velY -= 0.05; }
-
-
-// ctx.fillStyle = "red"
-
-// avObj.draw();
-// ctx.fillStyle = "white"
-// var secondBlock = ctx.fillRect(secondBlockLeft, secondBlockY, secondBlockWidth, secondBlockHeight);
-// arr.push(new Obstacle(100 + counter, 0, 80, 20, (1), ctx))
-// console.log(obstacle.blockX, obstacle.blockWidth);
-// else if (avatarY > obstacle.blockHeight
-//   || avatarX + avatarWidth < obstacle.blockX
-//   || avatarX > obstacle.blockX + obstacle.blockWidth)
-//     { velY -= 0.025; }
-
-// else if (
-//   (avatarX > obstacle.blockX + obstacle.blockWidth
-//   || avatarX < obstacle.blockX)
-//     && avatarY > obstacle.blockY + obstacle.blockHeight + 10)
-//     { avatarY += 3; }
-// console.log(arr);
-// avObj.avatarX -= 6;
-// console.log(avObj)
-// console.log(avObj.avatarX);
-// avObj.draw();
-// avObj.avatarX += 6;
-// avObj.draw();
 
 /***/ }),
 /* 1 */
@@ -350,52 +261,6 @@ exports.default = Obstacle;
 
 /***/ }),
 /* 2 */
-/***/ (function(module, exports, __webpack_require__) {
-
-"use strict";
-
-
-Object.defineProperty(exports, "__esModule", {
-  value: true
-});
-
-var _createClass = function () { function defineProperties(target, props) { for (var i = 0; i < props.length; i++) { var descriptor = props[i]; descriptor.enumerable = descriptor.enumerable || false; descriptor.configurable = true; if ("value" in descriptor) descriptor.writable = true; Object.defineProperty(target, descriptor.key, descriptor); } } return function (Constructor, protoProps, staticProps) { if (protoProps) defineProperties(Constructor.prototype, protoProps); if (staticProps) defineProperties(Constructor, staticProps); return Constructor; }; }();
-
-function _classCallCheck(instance, Constructor) { if (!(instance instanceof Constructor)) { throw new TypeError("Cannot call a class as a function"); } }
-
-var Avatar = function () {
-  function Avatar(avatarX, avatarY, avatarRadius, avatarVel, context) {
-    _classCallCheck(this, Avatar);
-
-    this.avatarX = 400; //Board.width / 2 later
-    this.avatarY = 300;
-    this.avatarRadius = 20;
-    this.avatarVel = 0;
-    this.context = context;
-    this.draw = this.draw;
-    // this.draw = this.draw;
-  }
-
-  _createClass(Avatar, [{
-    key: "draw",
-    value: function draw() {
-      console.log("draw");
-      this.context.clearRect(0, 0, canvas.width, canvas.height);
-      this.context.beginPath();
-      this.context.arc(this.avatarX, this.avatarY, this.avatarRadius, 0, Math.PI * 2, false);
-      this.context.fillStyle = 'red';
-      this.context.fill();
-      this.context.closePath();
-    }
-  }]);
-
-  return Avatar;
-}();
-
-exports.default = Avatar;
-
-/***/ }),
-/* 3 */
 /***/ (function(module, exports, __webpack_require__) {
 
 "use strict";

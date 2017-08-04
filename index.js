@@ -1,5 +1,4 @@
 import Obstacle from './lib/obstacles';
-import Avatar from './lib/avatar';
 import {background} from './lib/background'
 
 (function () {
@@ -146,6 +145,16 @@ function whatKey() {
   if (keys[39]) {
     if (avatarX + avatarWidth + 12 < 800)
     {avatarX += 12;}
+
+  }
+  if (keys[65]) {
+    if (avatarX - 6 > 0)
+    {avatarX -= 6;}
+
+  }
+  if (keys[68]) {
+    if (avatarX + avatarWidth + 6 < 800)
+    {avatarX += 6;}
 
   }
 }
