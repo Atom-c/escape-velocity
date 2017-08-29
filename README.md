@@ -1,7 +1,7 @@
 # Escape Velocity
 
 ## Background
-  The player controls an avatar at a constant speed trying to wait for rescue matching the pull of a black hold just off the bottom of the screen. Obstacles caught in the pull will be heading toward the player, pushing the player further down the screen. Quick relfexes will allow the player to survive without getting pushed to the bottom of the screen and into black hole.
+  The player controls an avatar waiting for rescue caught in the pull of a black hole. The player is at a constant speed just below escape velocity off the bottom of the screen. Obstacles also caught in the pull of the black hole will be heading toward the player, pushing the player further down the screen. Quick relfexes will allow the player to survive without getting pushed to the bottom of the screen and into black hole.
 
 ## Basic Gameplay
 ![Image](./docs/Escape-Velocity-Gameplay-Atom-C.gif)
