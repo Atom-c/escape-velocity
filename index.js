@@ -1,5 +1,5 @@
 import Obstacle from './lib/obstacles';
-import {background} from './lib/background'
+import { background } from './lib/background'
 
 (function () {
   var requestAnimationFrame = window.requestAnimationFrame || window.mozRequestAnimationFrame || window.webkitRequestAnimationFrame || window.msRequestAnimationFrame;
@@ -92,7 +92,7 @@ function gameLoop() {
       arr.push(new Obstacle(bX, 0, 280, 3, (8), ctx))
       arr.push(new Obstacle(bX * (counter % 33), 0, 330, 3, (8), ctx))
       arr.push(new Obstacle(bX * (counter % 14), 0, 180, 3, (8), ctx))
-      console.log(arr.length);
+
     } else if (counter * 1.5 > 10000) {
       arr.push(new Obstacle(bX, 0, 280, 3, (10), ctx))
       arr.push(new Obstacle(bX * (counter % 33), 0, 330, 3, (10), ctx))
