@@ -83,33 +83,7 @@ function gameLoop() {
 
   var bX = Math.floor(Math.random(10) * 100) * (counter % 50) % 800
 
-  if (counter % 30 === 0) {
-    if (counter * 1.5 < 2500) {
-      arr.push(new Obstacle(bX, 0, 280, 3, (6), ctx))
-      arr.push(new Obstacle(bX * (counter % 33), 0, 330, 3, (8), ctx))
-      arr.push(new Obstacle(bX * (counter % 14), 0, 180, 3, (8), ctx))
-
-    } else if (counter * 1.5 < 5000) {
-      arr.push(new Obstacle(bX, 0, 280, 3, (8), ctx))
-      arr.push(new Obstacle(bX * (counter % 33), 0, 330, 3, (10), ctx))
-      arr.push(new Obstacle(bX * (counter % 14), 0, 180, 3, (10), ctx))
-
-    } else if (counter * 1.5 > 5000) {
-      arr.push(new Obstacle(bX, 0, 280, 3, (10), ctx))
-      arr.push(new Obstacle(bX * (counter % 33), 0, 330, 3, (12), ctx))
-      arr.push(new Obstacle(bX * (counter % 14), 0, 180, 3, (12), ctx))
-
-    } else if (counter * 1.5 > 7500) {
-      arr.push(new Obstacle(bX, 0, 280, 3, (10), ctx))
-      arr.push(new Obstacle(bX * (counter % 33), 0, 330, 3, (14), ctx))
-      arr.push(new Obstacle(bX * (counter % 14), 0, 180, 3, (14), ctx))
-
-    } else if (counter * 1.5 > 10000) {
-      arr.push(new Obstacle(bX, 0, 280, 3, (10), ctx))
-      arr.push(new Obstacle(bX * (counter % 33), 0, 330, 3, (16), ctx))
-      arr.push(new Obstacle(bX * (counter % 14), 0, 180, 3, (16), ctx))
-    }
-  }
+  spawn(counter);
 
 
   arr.forEach((obstacle) => {
@@ -178,5 +152,40 @@ function whatKey() {
     if (avatarX + avatarWidth + 6 < 800)
     {avatarX += 3;}
 
+  }
+}
+
+const spawn = (counter) => {
+  if (counter % 30 === 0) {
+    if (counter * 1.5 < 2500) {
+      arr.push(new Obstacle(bX, 0, 280, 3, (6), ctx))
+      arr.push(new Obstacle(bX * (counter % 33), 0, 330, 3, (8), ctx))
+      arr.push(new Obstacle(bX * (counter % 14), 0, 180, 3, (8), ctx))
+
+    } else if (counter * 1.5 < 5000) {
+      arr.push(new Obstacle(bX, 0, 280, 3, (8), ctx))
+      arr.push(new Obstacle(bX * (counter % 33), 0, 330, 3, (10), ctx))
+      arr.push(new Obstacle(bX * (counter % 14), 0, 180, 3, (10), ctx))
+
+    } else if (counter * 1.5 > 5000) {
+      arr.push(new Obstacle(bX, 0, 280, 3, (10), ctx))
+      arr.push(new Obstacle(bX * (counter % 33), 0, 330, 3, (12), ctx))
+      arr.push(new Obstacle(bX * (counter % 14), 0, 180, 3, (12), ctx))
+
+    } else if (counter * 1.5 > 7500) {
+      arr.push(new Obstacle(bX, 0, 280, 3, (10), ctx))
+      arr.push(new Obstacle(bX * (counter % 33), 0, 330, 3, (14), ctx))
+      arr.push(new Obstacle(bX * (counter % 14), 0, 180, 3, (14), ctx))
+
+    } else if (counter * 1.5 > 10000) {
+      arr.push(new Obstacle(bX, 0, 280, 3, (10), ctx))
+      arr.push(new Obstacle(bX * (counter % 33), 0, 330, 3, (16), ctx))
+      arr.push(new Obstacle(bX * (counter % 14), 0, 180, 3, (16), ctx))
+
+    } else if (counter * 1.5 > 13000) {
+      arr.push(new Obstacle(bX, 0, 280, 3, (10), ctx))
+      arr.push(new Obstacle(bX * (counter % 33), 0, 330, 3, (20), ctx))
+      arr.push(new Obstacle(bX * (counter % 14), 0, 180, 3, (20), ctx))
+    }
   }
 }
