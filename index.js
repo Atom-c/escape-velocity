@@ -23,7 +23,7 @@ window.addEventListener("keyup", function (e) {
   keys[e.keyCode] = false;
 });
 window.addEventListener("keypress", function (e) {
-  if (e.keyCode == 13) { gameLoop() }
+  if (e.keyCode == 13) { gameLoop(); }
 });
 
 
@@ -71,7 +71,7 @@ function gameLoop() {
     ctx.fillStyle = "rgba(255, 108, 204, 1)";
     ctx.fillText(`You lasted ${Math.floor(counter * 1.5)} stasis units!`, 210, 500);
 
-    highScore = Math.floor(counter * 1.5)
+    // highScore = Math.floor(counter * 1.5)
     avatarX = 400;
     avatarY = 300;
     velX = 0;
