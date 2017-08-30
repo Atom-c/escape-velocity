@@ -92,26 +92,26 @@ function gameLoop() {
 
     if (counter * 1.5 < 2000) {
       arr.push(new Obstacle(bX, 0, 280, 3, (6), ctx, randomColor))
-      arr.push(new Obstacle(bX * (counter % 33), 0, 330, 3, (8), ctx, randomColor))
-      arr.push(new Obstacle(bX * (counter % 14), 0, 180, 3, (8), ctx, randomColor))
+      arr.push(new Obstacle(bX * (counter % 33), 0, 330, 4, (8), ctx, randomColor))
+      arr.push(new Obstacle(bX * (counter % 14), 0, 180, 4, (8), ctx, randomColor))
 
     } else if (counter * 1.5 < 3500) {
-      arr.push(new Obstacle(bX, 0, 280, 3, (8), ctx, randomColor))
-      arr.push(new Obstacle(bX * (counter % 33), 0, 330, 3, (10), ctx, randomColor))
-      arr.push(new Obstacle(bX * (counter % 14), 0, 180, 3, (10), ctx, randomColor))
+      arr.push(new Obstacle(bX, 0, 280, 4, (8), ctx, randomColor))
+      arr.push(new Obstacle(bX * (counter % 33), 0, 330, 5, (10), ctx, randomColor))
+      arr.push(new Obstacle(bX * (counter % 14), 0, 180, 5, (10), ctx, randomColor))
 
     } else if (counter * 1.5 < 5000) {
-      arr.push(new Obstacle(bX, 0, 280, 3, (10), ctx, randomColor))
-      arr.push(new Obstacle(bX * (counter % 33), 0, 330, 3, (12), ctx, randomColor))
-      arr.push(new Obstacle(bX * (counter % 14), 0, 180, 3, (12), ctx, randomColor))
+      arr.push(new Obstacle(bX, 0, 280, 5, (10), ctx, randomColor))
+      arr.push(new Obstacle(bX * (counter % 33), 0, 330, 7, (12), ctx, randomColor))
+      arr.push(new Obstacle(bX * (counter % 14), 0, 180, 7, (12), ctx, randomColor))
 
     } else if (counter * 1.5 < 7500) {
-      arr.push(new Obstacle(bX, 0, 280, 3, (10), ctx, randomColor))
-      arr.push(new Obstacle(bX * (counter % 33), 0, 330, 3, (14), ctx, randomColor))
-      arr.push(new Obstacle(bX * (counter % 14), 0, 180, 3, (14), ctx, randomColor))
+      arr.push(new Obstacle(bX, 0, 280, 5, (10), ctx, randomColor))
+      arr.push(new Obstacle(bX * (counter % 33), 0, 330, 9, (14), ctx, randomColor))
+      arr.push(new Obstacle(bX * (counter % 14), 0, 180, 9, (14), ctx, randomColor))
 
     } else if (counter * 1.5 < 10000) {
-      arr.push(new Obstacle(bX, 0, 280, 3, (10), ctx, randomColor))
+      arr.push(new Obstacle(bX, 0, 280, 5, (10), ctx, randomColor))
       arr.push(new Obstacle(bX * (counter % 33), 0, 330, 3, (16), ctx, randomColor))
       arr.push(new Obstacle(bX * (counter % 14), 0, 180, 3, (16), ctx, randomColor))
 
