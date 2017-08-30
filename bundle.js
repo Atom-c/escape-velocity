@@ -102,11 +102,6 @@ window.addEventListener("keyup", function (e) {
 window.addEventListener("keypress", function (e) {
   if (e.keyCode == 13) {
     gameLoop();
-    console.log("whatup");
-  }
-  if (e.keyCode == 32) {
-    init();
-    console.log("hi");
   }
 });
 
@@ -149,6 +144,7 @@ function gameLoop() {
     ctx.fillStyle = "rgba(255, 108, 204, 1)";
     ctx.fillText('You lasted ' + Math.floor(counter * 1.5) + ' stasis units!', 210, 500);
 
+    highScore = Math.floor(counter * 1.5);
     avatarX = 400;
     avatarY = 300;
     velX = 0;
@@ -269,18 +265,22 @@ function spawn(apple, ctx, bX) {
       arr.push(new _obstacles2.default(bX + bX * (counter % 5), 0, 230, 5, 10, ctx, "cyan"));
       arr.push(new _obstacles2.default(bX * (counter % 12), 0, 280, 7, 12, ctx, "chartreuse"));
       arr.push(new _obstacles2.default(bX * (counter % 33), 0, 330, 9, 14, ctx, randomColor));
-      arr.push(new _obstacles2.default(bX * (counter % 14), 0, 180, 9, 14, ctx, randomColor));
+      arr.push(new _obstacles2.default(bX * (counter % 89), 0, 180, 9, 14, ctx, randomColor));
     } else if (counter * 1.5 < 10000) {
       arr.push(new _obstacles2.default(bX, 0, 140, 4, 8, ctx, "yellow"));
       arr.push(new _obstacles2.default(bX * (counter % 5), 0, 280, 5, 10, ctx, "cyan"));
       arr.push(new _obstacles2.default(bX * (counter % 12), 0, 230, 7, 12, ctx, "chartreuse"));
       arr.push(new _obstacles2.default(bX * (counter % 63), 0, 280, 9, 14, ctx, "aquamarine"));
       arr.push(new _obstacles2.default(bX * (counter % 33), 0, 330, 11, 16, ctx, randomColor));
-      arr.push(new _obstacles2.default(bX * (counter % 14), 0, 180, 11, 16, ctx, randomColor));
+      arr.push(new _obstacles2.default(bX * (counter % 89), 0, 180, 11, 16, ctx, randomColor));
     } else if (counter * 1.5 > 13000) {
-      arr.push(new _obstacles2.default(bX, 0, 280, 5, 10, ctx, "cyan"));
-      arr.push(new _obstacles2.default(bX * (counter % 33), 0, 330, 3, 20, ctx));
-      arr.push(new _obstacles2.default(bX * (counter % 14), 0, 180, 3, 20, ctx));
+      arr.push(new _obstacles2.default(bX, 0, 140, 4, 8, ctx, "yellow"));
+      arr.push(new _obstacles2.default(bX * (counter % 5), 0, 280, 5, 10, ctx, "cyan"));
+      arr.push(new _obstacles2.default(bX * (counter % 12), 0, 230, 7, 12, ctx, "chartreuse"));
+      arr.push(new _obstacles2.default(bX * (counter % 63), 0, 280, 9, 14, ctx, "aquamarine"));
+      arr.push(new _obstacles2.default(bX * (counter % 33), 0, 330, 11, 20, ctx, randomColor));
+      arr.push(new _obstacles2.default(bX * (counter % 89), 0, 180, 11, 20, ctx, randomColor));
+      arr.push(new _obstacles2.default(bX * (counter % 164), 0, 180, 11, 20, ctx, randomColor));
     }
   }
 }
