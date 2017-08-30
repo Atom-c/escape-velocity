@@ -182,7 +182,7 @@ function whatKey() {
 
 function spawn(counter, ctx, bX) {
   if (counter % 30 === 0) {
-    
+
     var randomColor = '#' + '0123456789abcdef'.split('').map(function(v,i,a) { return i > 5 ? null : a[Math.floor(Math.random() * 16)] }).join('')
 
     if (bX === 0) { bX = 120 }
@@ -204,39 +204,39 @@ function spawn(counter, ctx, bX) {
 
     } else if (counter * 1.5 < 2000) {
       arr.push(new Obstacle(bX, 0, 190, 4, (5), ctx, "#ff5783"))
-      arr.push(new Obstacle(bX * (counter % 33), 0, 300, 6, (6), ctx, randomColor))
-      arr.push(new Obstacle(bX * (counter % 14), -100, 240, 8, (7), ctx, randomColor))
+      arr.push(new Obstacle(bX * (counter % 33), 0, 300, 6, (5.5), ctx, randomColor))
+      arr.push(new Obstacle(bX * (counter % 14), -100, 240, 8, (6), ctx, randomColor))
 
     } else if (counter * 1.5 < 3500) {
       arr.push(new Obstacle(bX, 0, 190, 4, (5), ctx, "orange"))
       arr.push(new Obstacle(bX * (counter % 33), 0, 300, 6, (6), ctx, randomColor))
-      arr.push(new Obstacle(bX * (counter % 14), -100, 240, 8, (7), ctx, randomColor))
+      arr.push(new Obstacle(bX * (counter % 14), -100, 240, 8, (6.5), ctx, randomColor))
 
     } else if (counter * 1.5 < 5000) {
       arr.push(new Obstacle(bX, 0, 200, 5, (6), ctx, "yellow"))
       arr.push(new Obstacle(bX * (counter % 12 + 2), 0, 140, 7, (7), ctx, "#ff5783"))
       arr.push(new Obstacle(bX * (counter % 33), -100, 240, 9, (8), ctx, randomColor))
-      arr.push(new Obstacle(bX * (counter % 14), 0, 180, 11, (9), ctx, randomColor))
+      arr.push(new Obstacle(bX * (counter % 14), 0, 180, 11, (8.5), ctx, randomColor))
 
     } else if (counter * 1.5 < 7500) {
       arr.push(new Obstacle(bX, 0, 140, 6, (6), ctx, "lime"))
       arr.push(new Obstacle(bX * (counter % 5), 0, 200, 8, (7), ctx, "yellow"))
-      arr.push(new Obstacle(bX * (counter % 12 + 2), 0, 280, 10, (8), ctx, "#ff5783"))
-      arr.push(new Obstacle(bX * (counter % 33), 0, 330, 12, (9), ctx, randomColor))
-      arr.push(new Obstacle(bX * Math.floor(counter % 89 / 8), -100, 180, 14, (10), ctx, randomColor))
+      // arr.push(new Obstacle(bX * (counter % 12 + 2), 0, 280, 10, (8), ctx, "#ff5783"))
+      arr.push(new Obstacle(bX * (counter % 33), 0, 330, 12, (8.5), ctx, randomColor))
+      arr.push(new Obstacle(bX * Math.floor(counter % 89 / 8), -100, 180, 14, (9), ctx, randomColor))
 
     } else if (counter * 1.5 < 10000) {
       arr.push(new Obstacle(bX, 0, 140, 4, (8), ctx, "cyan"))
-      arr.push(new Obstacle(bX * (counter % 5), 0, 280, 5, (10), ctx, "blue"))
-      arr.push(new Obstacle(bX * (counter % 12 + 2), 0, 230, 7, (12), ctx, "chartreuse"))
-      arr.push(new Obstacle(bX * Math.floor(counter % 63 / 7), 0, 280, 9, (14), ctx, "lime"))
-      arr.push(new Obstacle(bX * (counter % 33), 0, 330, 11, (16), ctx, randomColor))
-      arr.push(new Obstacle(bX * Math.floor(counter % 89 / 10), -100, 180, 11, (16), ctx, randomColor))
+      arr.push(new Obstacle(bX * (counter % 5), 0, 280, 5, (9), ctx, "blue"))
+      // arr.push(new Obstacle(bX * (counter % 12 + 2), 0, 230, 7, (12), ctx, "chartreuse"))
+      arr.push(new Obstacle(bX * Math.floor(counter % 63 / 7), 0, 280, 9, (9.5), ctx, "lime"))
+      arr.push(new Obstacle(bX * (counter % 33), 0, 330, 11, (10), ctx, randomColor))
+      arr.push(new Obstacle(bX * Math.floor(counter % 89 / 10), -100, 180, 11, (10.5), ctx, randomColor))
 
     } else if (counter * 1.5 > 13000) {
       arr.push(new Obstacle(bX, 0, 140, 4, (8), ctx, "aquamarine"))
       arr.push(new Obstacle(bX * (counter % 5), 0, 280, 5, (10), ctx, "cyan"))
-      arr.push(new Obstacle(bX * (counter % 12 + 2), 0, 230, 7, (12), ctx, "chartreuse"))
+      // arr.push(new Obstacle(bX * (counter % 12 + 2), 0, 230, 7, (12), ctx, "chartreuse"))
       arr.push(new Obstacle(bX * (counter % 63), 0, 280, 9, (14), ctx, "lime"))
       arr.push(new Obstacle(bX * (counter % 33), 0, 330, 11, (20), ctx, randomColor))
       arr.push(new Obstacle(bX * Math.floor(counter % 89 / 10), 0, 180, 11, (20), ctx, randomColor))
