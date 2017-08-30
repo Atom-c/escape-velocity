@@ -241,46 +241,62 @@ function whatKey() {
   }
 }
 
-function spawn(apple, ctx, bX) {
+function spawn(counter, ctx, bX) {
   if (counter % 30 === 0) {
     var randomColor = '#' + '0123456789abcdef'.split('').map(function (v, i, a) {
       return i > 5 ? null : a[Math.floor(Math.random() * 16)];
     }).join('');
 
+    if (bX === 0) {
+      bX = 120;
+    }
+    if (bX >= 550) {
+      bX = 60;
+    }
+
+    // console.log(bX, "POJO bx");
+    // console.log(bX * (counter % 5), "MOD 5");
+    // console.log(bX * (counter % 12 + 1), "MOD 12");
+    // console.log(bX * (counter % 14), "MOD 14");
+    // console.log(bX * (counter % 33), "MOD 33");
+    // console.log(bX * (counter % 89 / 10), "MOD 89");
+    // console.log(bX * (counter % 63 / 7), "MOD 63");
+    // console.log(bX * (counter % 164 / 25), "MOD 164");
+
     if (counter * 1.5 < 2000) {
-      arr.push(new _obstacles2.default(bX, 0, 280, 3, 6, ctx, 'rgba(255, 108, 87, 1.0)'));
-      arr.push(new _obstacles2.default(bX * (counter % 33), 0, 330, 4, 8, ctx, randomColor));
-      arr.push(new _obstacles2.default(bX * (counter % 14), 0, 180, 4, 8, ctx, randomColor));
+      arr.push(new _obstacles2.default(bX, 0, 180, 3, 4, ctx, 'rgba(255, 148, 147, 1.0)'));
+      arr.push(new _obstacles2.default(bX * (counter % 33), 0, 280, 4, 6, ctx, randomColor));
+      arr.push(new _obstacles2.default(bX * (counter % 14), -100, 180, 4, 6, ctx, randomColor));
     } else if (counter * 1.5 < 3500) {
-      arr.push(new _obstacles2.default(bX, 0, 230, 4, 8, ctx, "#ff5783"));
-      arr.push(new _obstacles2.default(bX * (counter % 33), 0, 330, 5, 10, ctx, randomColor));
-      arr.push(new _obstacles2.default(bX * (counter % 14), 0, 180, 5, 10, ctx, randomColor));
+      arr.push(new _obstacles2.default(bX, 0, 200, 4, 6, ctx, "#ff5783"));
+      arr.push(new _obstacles2.default(bX * (counter % 33), 0, 300, 5, 8, ctx, randomColor));
+      arr.push(new _obstacles2.default(bX * (counter % 14), -100, 240, 5, 8, ctx, randomColor));
     } else if (counter * 1.5 < 5000) {
-      arr.push(new _obstacles2.default(bX, 0, 230, 4, 8, ctx, "orange"));
-      arr.push(new _obstacles2.default(bX + bX, 0, 280, 5, 10, ctx, "cyan"));
-      arr.push(new _obstacles2.default(bX * (counter % 33), 0, 330, 7, 12, ctx, randomColor));
-      arr.push(new _obstacles2.default(bX * (counter % 14), 0, 180, 7, 12, ctx, randomColor));
+      arr.push(new _obstacles2.default(bX, 0, 210, 4, 6, ctx, "orange"));
+      arr.push(new _obstacles2.default(bX * (counter % 12 + 2), 0, 240, 5, 8, ctx, "cyan"));
+      arr.push(new _obstacles2.default(bX * (counter % 33), -100, 310, 7, 10, ctx, randomColor));
+      arr.push(new _obstacles2.default(bX * (counter % 14), 0, 180, 7, 10, ctx, randomColor));
     } else if (counter * 1.5 < 7500) {
-      arr.push(new _obstacles2.default(bX, 0, 140, 4, 8, ctx, "yellow"));
-      arr.push(new _obstacles2.default(bX + bX * (counter % 5), 0, 230, 5, 10, ctx, "cyan"));
-      arr.push(new _obstacles2.default(bX * (counter % 12), 0, 280, 7, 12, ctx, "chartreuse"));
-      arr.push(new _obstacles2.default(bX * (counter % 33), 0, 330, 9, 14, ctx, randomColor));
-      arr.push(new _obstacles2.default(bX * (counter % 89), 0, 180, 9, 14, ctx, randomColor));
+      arr.push(new _obstacles2.default(bX, 0, 140, 4, 6, ctx, "yellow"));
+      arr.push(new _obstacles2.default(bX * (counter % 5), 0, 200, 5, 8, ctx, "cyan"));
+      arr.push(new _obstacles2.default(bX * (counter % 12 + 2), 0, 280, 7, 10, ctx, "chartreuse"));
+      arr.push(new _obstacles2.default(bX * (counter % 33), 0, 330, 9, 12, ctx, randomColor));
+      arr.push(new _obstacles2.default(bX * Math.floor(counter % 89 / 8), -100, 180, 9, 14, ctx, randomColor));
     } else if (counter * 1.5 < 10000) {
       arr.push(new _obstacles2.default(bX, 0, 140, 4, 8, ctx, "yellow"));
       arr.push(new _obstacles2.default(bX * (counter % 5), 0, 280, 5, 10, ctx, "cyan"));
-      arr.push(new _obstacles2.default(bX * (counter % 12), 0, 230, 7, 12, ctx, "chartreuse"));
-      arr.push(new _obstacles2.default(bX * (counter % 63), 0, 280, 9, 14, ctx, "aquamarine"));
+      arr.push(new _obstacles2.default(bX * (counter % 12 + 2), 0, 230, 7, 12, ctx, "chartreuse"));
+      arr.push(new _obstacles2.default(bX * Math.floor(counter % 63 / 7), 0, 280, 9, 14, ctx, "aquamarine"));
       arr.push(new _obstacles2.default(bX * (counter % 33), 0, 330, 11, 16, ctx, randomColor));
-      arr.push(new _obstacles2.default(bX * (counter % 89), 0, 180, 11, 16, ctx, randomColor));
+      arr.push(new _obstacles2.default(bX * Math.floor(counter % 89 / 10), -100, 180, 11, 16, ctx, randomColor));
     } else if (counter * 1.5 > 13000) {
       arr.push(new _obstacles2.default(bX, 0, 140, 4, 8, ctx, "yellow"));
       arr.push(new _obstacles2.default(bX * (counter % 5), 0, 280, 5, 10, ctx, "cyan"));
-      arr.push(new _obstacles2.default(bX * (counter % 12), 0, 230, 7, 12, ctx, "chartreuse"));
+      arr.push(new _obstacles2.default(bX * (counter % 12 + 2), 0, 230, 7, 12, ctx, "chartreuse"));
       arr.push(new _obstacles2.default(bX * (counter % 63), 0, 280, 9, 14, ctx, "aquamarine"));
       arr.push(new _obstacles2.default(bX * (counter % 33), 0, 330, 11, 20, ctx, randomColor));
-      arr.push(new _obstacles2.default(bX * (counter % 89), 0, 180, 11, 20, ctx, randomColor));
-      arr.push(new _obstacles2.default(bX * (counter % 164), 0, 180, 11, 20, ctx, randomColor));
+      arr.push(new _obstacles2.default(bX * Math.floor(counter % 89 / 10), 0, 180, 11, 20, ctx, randomColor));
+      arr.push(new _obstacles2.default(bX * Math.floor(counter % 164 / 25), -100, 180, 11, 20, ctx, randomColor));
     }
   }
 }
