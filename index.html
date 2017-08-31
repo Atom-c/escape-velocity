@@ -67,12 +67,51 @@
         z-index: 9000;
       }
       .instructions {
-        margin-top: 20px;
+        margin-top: -450px;
       }
       .title {
         font-size: 30px;
         text-shadow: rgba(0,225,230, 0.85) 2px 4px;
+      }
+      .key {
+        background-color: lightgrey;
+        height: 2em;
+        width: 2em;
+        position: absolute;
+        border: 8px grey solid;
+        border-left-width: 6px;
+        border-right-width: 6px;
+        border-top: 0px grey solid;
+        border-top-left-radius: 8px;
+        border-top-right-radius: 8px;
+        border-bottom-left-radius: 3px;
+        border-bottom-right-radius: 3px;
+        text-shadow: rgba(255, 108, 87, 0.75) 0px 0px;
+        text-align: center;
+      }
 
+      .key:hover {
+        background-color: darkgrey;
+        border-color: grey;
+      }
+
+      .a-key {
+        top: 5px;
+         margin-left: -50px;
+      }
+      .d-key {
+        top: 5px;
+        margin-left: 50px;
+      }
+      .left-key {
+        margin-top: -10px;
+        margin-left: -75px;
+        /*margin-left: -200px;*/
+      }
+      .right-key {
+        margin-top: -10px;
+        margin-left: 25px;
+        /*margin-left: -150px;*/
       }
       </style>
   </head>
@@ -83,11 +122,16 @@
         Escape Velocity
       </p>
       <canvas id="canvas"></canvas>
-      <p class="instructions">
-        Use the arrow keys to dodge left and right.
+      <p id="instructions" class="instructions">
+        <b id="a-key" class="a-key key"> A </b> <b id="d-key" class="d-key key"> D </b>
+        <br />
+        <br />keys to strafe slowly<br />
         <br />
         <br />
-        Don't get pulled into the black hole.
+        <br />
+        <b class="left-key key">← </b> <b class="right-key key">➝</b>
+        <br />
+        <br />to boost<br />(try pressing two keys together)
       </p>
     </main>
     <script src="./bundle.js" charset="utf-8"></script>

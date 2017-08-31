@@ -103,6 +103,9 @@ window.addEventListener("keypress", function (e) {
   if (e.keyCode == 13) {
     gameLoop();
   }
+  document.getElementById("instructions").setAttribute('style', 'display: none;');
+  document.getElementById("a-key").setAttribute('style', 'margin-left: -75px;');
+  document.getElementById("d-key").setAttribute('style', 'margin-left: 25px;');
 });
 
 var avatarX = 400,
@@ -131,18 +134,20 @@ function gameLoop() {
 
   // DEATH IMPLENTATION
   if (avatarY > canvas.height) {
-    ctx.font = "55px courier";
-    ctx.shadowBlur = 20;
-    ctx.shadowColor = "red";
-    ctx.fillStyle = 'rgba(255, 108, 87, 1.0)';
-    ctx.fillText('The black hole got you!', 28, 335);
-    lost = true;
+    // ctx.font = "55px courier";
+    // ctx.shadowBlur = 20;
+    // ctx.shadowColor = "red";
+    // ctx.fillStyle= `rgba(255, 108, 87, 1.0)`;
+    // ctx.fillText(`The black hole got you!`, 28, 335);
+    // lost = true;
 
     ctx.font = "25px courier";
     ctx.shadowBlur = 15;
     ctx.shadowColor = 'rgba(255, 108, 204, 1)';
     ctx.fillStyle = "rgba(255, 108, 204, 1)";
     ctx.fillText('You lasted ' + Math.floor(counter * 1.5) + ' stasis units!', 210, 500);
+
+    document.getElementById("instructions").setAttribute('style', 'display: block;');
 
     // highScore = Math.floor(counter * 1.5)
     avatarX = 400;
