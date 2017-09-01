@@ -23,17 +23,15 @@ window.addEventListener("keyup", function (e) {
   keys[e.keyCode] = false;
 });
 window.addEventListener("keypress", function (e) {
-  if (e.keyCode == 13) { gameLoop(); }
-  document.getElementById("instructions").setAttribute('style', 'display: none;')
-  document.getElementById("a-key").setAttribute('style', 'margin-left: -75px;')
-  document.getElementById("d-key").setAttribute('style', 'margin-left: 25px;')
+  if (e.keyCode == 13) {
+    gameLoop();
+    document.getElementById("instructions").setAttribute('style', 'display: none;')
+    document.getElementById("a-key").setAttribute('style', 'margin-left: -75px;')
+    document.getElementById("d-key").setAttribute('style', 'margin-left: 25px;')
+  }
+
 });
-window.addEventListener("keypress", function (e) {
-  if (e.keyCode == 32) { document.getElementById("instructions").setAttribute('style', 'display: block;') }
-  document.getElementById("instructions").setAttribute('style', 'display: none;')
-  document.getElementById("a-key").setAttribute('style', 'margin-left: -75px;')
-  document.getElementById("d-key").setAttribute('style', 'margin-left: 25px;')
-});
+
 
 
 var avatarX = 400,
