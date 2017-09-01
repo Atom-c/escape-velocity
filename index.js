@@ -28,6 +28,12 @@ window.addEventListener("keypress", function (e) {
   document.getElementById("a-key").setAttribute('style', 'margin-left: -75px;')
   document.getElementById("d-key").setAttribute('style', 'margin-left: 25px;')
 });
+window.addEventListener("keypress", function (e) {
+  if (e.keyCode == 32) { document.getElementById("instructions").setAttribute('style', 'display: block;') }
+  document.getElementById("instructions").setAttribute('style', 'display: none;')
+  document.getElementById("a-key").setAttribute('style', 'margin-left: -75px;')
+  document.getElementById("d-key").setAttribute('style', 'margin-left: 25px;')
+});
 
 
 var avatarX = 400,
