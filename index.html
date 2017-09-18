@@ -13,8 +13,6 @@
         vertical-align: baseline;
         }
       canvas {
-        /*position: relative;*/
-        /*border: solid 1px black;*/
         background-color: rgba(0,0,0,1.0);
         z-index: 9000
       }
@@ -97,21 +95,19 @@
 
       .a-key {
         top: 5px;
-         margin-left: -50px;
+         margin-left: -75px;
       }
       .d-key {
         top: 5px;
-        margin-left: 50px;
+        margin-left: 25px;
       }
       .left-key {
         margin-top: -10px;
         margin-left: -75px;
-        /*margin-left: -200px;*/
       }
       .right-key {
         margin-top: -10px;
         margin-left: 25px;
-        /*margin-left: -150px;*/
       }
       </style>
   </head>
@@ -123,6 +119,7 @@
       </p>
       <canvas id="canvas"></canvas>
       <p id="instructions" class="instructions">
+        <br />
         <b id="a-key" class="a-key key"> A </b> <b id="d-key" class="d-key key"> D </b>
         <br />
         <br />keys to strafe slowly<br />
