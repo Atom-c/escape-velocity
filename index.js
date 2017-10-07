@@ -19,20 +19,22 @@ function init() {
 window.addEventListener("keydown", function (e) {
   keys[e.keyCode] = true;
 });
+
 window.addEventListener("keyup", function (e) {
   keys[e.keyCode] = false;
 });
+
 window.addEventListener("keypress", function (e) {
   if (e.keyCode == 13) {
     gameLoop();
-    document.getElementById("instructions").setAttribute('style', 'display: none;')
-    document.getElementById("a-key").setAttribute('style', 'margin-left: -75px;')
-    document.getElementById("d-key").setAttribute('style', 'margin-left: 25px;')
+    document.getElementById("instructions")
+      .setAttribute('style', 'display: none;')
+    document.getElementById("a-key")
+      .setAttribute('style', 'margin-left: -75px;')
+    document.getElementById("d-key")
+      .setAttribute('style', 'margin-left: 25px;')
   }
-
 });
-
-
 
 var avatarX = 400,
     avatarY = 300,
@@ -50,20 +52,14 @@ var avatarX = 400,
 
 function gameLoop() {
 
-  if (lost === false) {
-    counter++;
-  }
+  if (lost === false) counter++;
 
   var canvas = document.getElementById("canvas");
   var ctx = canvas.getContext("2d");
   canvas.width = 800;
   canvas.height = 600;
-
-
   avatarY += velY;
 
-
-  // DEATH IMPLENTATION
   if (avatarY > canvas.height) {
     ctx.font = "25px courier";
     ctx.shadowBlur = 15;
@@ -73,7 +69,6 @@ function gameLoop() {
 
     document.getElementById("instructions").setAttribute('style', 'display: block;')
 
-    // highScore = Math.floor(counter * 1.5)
     avatarX = 400;
     avatarY = 300;
     velX = 0;
@@ -88,9 +83,7 @@ function gameLoop() {
     counter = 0;
 
     return;
-
   }
-  //___________________
 
 
   whatKey();
@@ -99,9 +92,6 @@ function gameLoop() {
   ctx.shadowColor = "cyan";
   ctx.fillStyle = `rgba(23, 255, 211, 1.0)`;
   var avatar = ctx.fillRect(avatarX, avatarY, avatarWidth, avatarHeight);
-
-
-
 
   ctx.fillStyle = "black"
 
@@ -134,14 +124,13 @@ function gameLoop() {
     }
   })
 
-//Le Score
+// Abstract this score element
   ctx.font = "30px courier";
   ctx.strokeStyle= `rgba(23, 255, 211, 1.0)`
   ctx.fillStyle= "cyan";
   ctx.strokeText(`spectral units: ${Math.floor(counter * 1.5)}`, 10, 35);
 
   ctx.fillText(`height: ${(578 - avatarY + avatarHeight)}`, 500, 35);
-//________
 
   requestAnimationFrame(gameLoop);
 }
