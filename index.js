@@ -135,10 +135,6 @@ function gameLoop() {
   requestAnimationFrame(gameLoop);
 }
 
-if (lost) {
-
-}
-
 function whatKey() {
   if (keys[37]) {
     if (avatarX - 12 > 0)
@@ -161,13 +157,16 @@ function whatKey() {
 function spawn(counter, ctx, bX) {
   if (counter % 30 === 0) {
 
-    var randomColor = '#' + '0123456789abcdef'.split('').map(function(v,i,a) { return i > 5 ? null : a[Math.floor(Math.random() * 16)] }).join('')
+    var randomColor = '#' + '0123456789abcdef'.split('')
+      .map(function(v,i,a) {
+        return i > 5 ? null : a[Math.floor(Math.random() * 16)]
+      }).join('')
 
     if (bX === 0) { bX = 120 }
     if (bX >= 550) { bX = 60 }
 
     if (counter * 1.5 < 1000) {
-      arr.push(new Obstacle(((bX + 100) * 1.1), 0, 180, 2, (3), ctx, `red`))
+      arr.push(new Obstacle(((bX + 100) * 1.1), 0, 180, 2, (3), ctx, `#ff409e`))
       arr.push(new Obstacle(bX * (counter % 33), 0, 280, 4, (4), ctx, randomColor))
       arr.push(new Obstacle(bX * (counter % 14), -100, 180, 6, (5), ctx, randomColor))
 
