@@ -96,9 +96,11 @@ function init() {
 window.addEventListener("keydown", function (e) {
   keys[e.keyCode] = true;
 });
+
 window.addEventListener("keyup", function (e) {
   keys[e.keyCode] = false;
 });
+
 window.addEventListener("keypress", function (e) {
   if (e.keyCode == 13) {
     gameLoop();
@@ -121,18 +123,14 @@ var avatarX = 400,
 
 function gameLoop() {
 
-  if (lost === false) {
-    counter++;
-  }
+  if (lost === false) counter++;
 
   var canvas = document.getElementById("canvas");
   var ctx = canvas.getContext("2d");
   canvas.width = 800;
   canvas.height = 600;
-
   avatarY += velY;
 
-  // DEATH IMPLENTATION
   if (avatarY > canvas.height) {
     ctx.font = "25px courier";
     ctx.shadowBlur = 15;
@@ -142,7 +140,6 @@ function gameLoop() {
 
     document.getElementById("instructions").setAttribute('style', 'display: block;');
 
-    // highScore = Math.floor(counter * 1.5)
     avatarX = 400;
     avatarY = 300;
     velX = 0;
@@ -158,8 +155,6 @@ function gameLoop() {
 
     return;
   }
-  //___________________
-
 
   whatKey();
 
@@ -195,19 +190,16 @@ function gameLoop() {
     }
   });
 
-  //Le Score
+  // Abstract this score element
   ctx.font = "30px courier";
   ctx.strokeStyle = 'rgba(23, 255, 211, 1.0)';
   ctx.fillStyle = "cyan";
   ctx.strokeText('spectral units: ' + Math.floor(counter * 1.5), 10, 35);
 
   ctx.fillText('height: ' + (578 - avatarY + avatarHeight), 500, 35);
-  //________
 
   requestAnimationFrame(gameLoop);
 }
-
-if (lost) {}
 
 function whatKey() {
   if (keys[37]) {
@@ -247,26 +239,26 @@ function spawn(counter, ctx, bX) {
     }
 
     if (counter * 1.5 < 1000) {
-      arr.push(new _obstacles2.default((bX + 100) * 1.1, 0, 180, 2, 3, ctx, 'red'));
-      arr.push(new _obstacles2.default(bX * (counter % 33), 0, 280, 4, 4, ctx, randomColor));
-      arr.push(new _obstacles2.default(bX * (counter % 14), -100, 180, 6, 5, ctx, randomColor));
+      arr.push(new _obstacles2.default((bX + 100) * 1.1, 0, 180, 2, 4, ctx, '#FF007D'));
+      arr.push(new _obstacles2.default(bX * (counter % 33), 0, 280, 4, 4.5, ctx, '#ff5783'));
+      arr.push(new _obstacles2.default(bX * (counter % 14), -100, 180, 6, 5, ctx, '#FF0055'));
     } else if (counter * 1.5 < 2000) {
-      arr.push(new _obstacles2.default(bX, 0, 190, 4, 5, ctx, "#ff5783"));
-      arr.push(new _obstacles2.default(bX * (counter % 33), 0, 300, 6, 5.5, ctx, randomColor));
-      arr.push(new _obstacles2.default(bX * (counter % 14), -100, 240, 8, 6, ctx, randomColor));
+      arr.push(new _obstacles2.default(bX, 0, 190, 4, 5, ctx, '#FF0800'));
+      arr.push(new _obstacles2.default(bX * (counter % 33), 0, 300, 6, 5.5, ctx, '#FF4900'));
+      arr.push(new _obstacles2.default(bX * (counter % 14), -100, 240, 8, 6, ctx, '#FF8F00'));
     } else if (counter * 1.5 < 3500) {
-      arr.push(new _obstacles2.default(bX, 0, 190, 4, 5, ctx, "orange"));
-      arr.push(new _obstacles2.default(bX * (counter % 33), 0, 300, 6, 6, ctx, randomColor));
-      arr.push(new _obstacles2.default(bX * (counter % 14), -100, 240, 8, 6.5, ctx, randomColor));
+      arr.push(new _obstacles2.default(bX, 0, 190, 4, 5, ctx, '#00FF5D'));
+      arr.push(new _obstacles2.default(bX * (counter % 33), 0, 300, 6, 6, ctx, '#00FFF0'));
+      arr.push(new _obstacles2.default(bX * (counter % 14), -100, 240, 8, 6.5, ctx, '#62FF00'));
     } else if (counter * 1.5 < 5000) {
-      arr.push(new _obstacles2.default(bX, 0, 200, 5, 6, ctx, "yellow"));
-      arr.push(new _obstacles2.default(bX * (counter % 12 + 2), 0, 140, 7, 7, ctx, "#ff5783"));
-      arr.push(new _obstacles2.default(bX * (counter % 33), -100, 240, 9, 8, ctx, randomColor));
+      arr.push(new _obstacles2.default(bX, 0, 200, 5, 6, ctx, '#FF00AE'));
+      arr.push(new _obstacles2.default(bX * (counter % 12 + 2), 0, 140, 7, 7, ctx, '#C24DFD'));
+      arr.push(new _obstacles2.default(bX * (counter % 33), -100, 240, 9, 8, ctx, '#FD53C7'));
       arr.push(new _obstacles2.default(bX * (counter % 14), 0, 180, 11, 8.5, ctx, randomColor));
     } else if (counter * 1.5 < 7500) {
-      arr.push(new _obstacles2.default(bX, 0, 140, 6, 6, ctx, "lime"));
-      arr.push(new _obstacles2.default(bX * (counter % 12 + 2), 0, 200, 8, 7, ctx, "yellow"));
-      arr.push(new _obstacles2.default(bX * (counter % 33), 0, 330, 12, 8.5, ctx, randomColor));
+      arr.push(new _obstacles2.default(bX, 0, 140, 6, 6, ctx, 'lime'));
+      arr.push(new _obstacles2.default(bX * (counter % 12 + 2), 0, 200, 8, 7, ctx, '#F3FF00'));
+      arr.push(new _obstacles2.default(bX * (counter % 33), 0, 330, 12, 8.5, ctx, '#0C00FF'));
       arr.push(new _obstacles2.default(bX * Math.floor(counter % 14), -100, 180, 14, 9, ctx, randomColor));
     } else if (counter * 1.5 < 10000) {
       arr.push(new _obstacles2.default(bX, 0, 140, 4, 8, ctx, "cyan"));
