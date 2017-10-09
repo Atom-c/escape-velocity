@@ -165,55 +165,55 @@ function spawn(counter, ctx, bX) {
     if (bX === 0) { bX = 120 }
     if (bX >= 550) { bX = 60 }
 
-    if (counter * 1.5 < 1000) {
-      arr.push(new Obstacle(((bX + 100) * 1.1), 0, 180, 2, (4), ctx, '#FF007D'))
-      arr.push(new Obstacle(bX * (counter % 33), 0, 280, 4, (4.5), ctx, '#FF0043'))
-      arr.push(new Obstacle(bX * (counter % 14), -100, 180, 6, (5), ctx, '#FF0023'))
+    if (counter * 1.5 < 500) {
+      arr.push(new Obstacle(((bX + 100) * 1.1), 0, 180, 2, (4), ctx, '#FF0068'))
+      arr.push(new Obstacle(bX * (counter % 33), 0, 280, 4, (4.5), ctx, '#FF0036'))
+      arr.push(new Obstacle(bX * (counter % 14), -100, 180, 6, (5), ctx, '#FF0010'))
 
-    } else if (counter * 1.5 < 2000) {
+    } else if (counter * 1.5 < 1200) {
       arr.push(new Obstacle(bX, 0, 190, 4, (5), ctx, '#FF0800'))
       arr.push(new Obstacle(bX * (counter % 33), 0, 300, 6, (5.5), ctx, '#FF4900'))
       arr.push(new Obstacle(bX * (counter % 14), -100, 240, 8, (6), ctx, '#FF8F00'))
 
-    } else if (counter * 1.5 < 3000) {
+    } else if (counter * 1.5 < 1900) {
       arr.push(new Obstacle(bX, 0, 190, 4, (5), ctx, '#FFCD00'))
       arr.push(new Obstacle(bX * (counter % 33), 0, 300, 6, (6), ctx, '#FFE400'))
       arr.push(new Obstacle(bX * (counter % 14), -100, 240, 8, (6.5), ctx, '#FFFF00'))
 
-    } else if (counter * 1.5 < 4000) {
+    } else if (counter * 1.5 < 2700) {
       arr.push(new Obstacle(bX, 0, 190, 4, (5), ctx, '#F3FF00'))
       arr.push(new Obstacle(bX * (counter % 12 + 2), 0, 140, 7, (5.5), ctx, '#D4FF00'))
       arr.push(new Obstacle(bX * (counter % 33), 0, 300, 6, (6), ctx, '#C1FF00'))
       arr.push(new Obstacle(bX * (counter % 14), -100, 240, 8, (6.5), ctx, '#87FF00'))
 
-    } else if (counter * 1.5 < 5000) {
+    } else if (counter * 1.5 < 3500) {
       arr.push(new Obstacle(bX, 0, 200, 5, (6), ctx, '#62FF00'))
       arr.push(new Obstacle(bX * (counter % 12 + 2), 0, 140, 7, (6.5), ctx, '#00FF5D'))
       arr.push(new Obstacle(bX * (counter % 33), -100, 240, 9, (7.5), ctx, '#00FF74'))
       arr.push(new Obstacle(bX * (counter % 14), 0, 180, 11, (8), ctx, '#00FFF0'))
 
-    } else if (counter * 1.5 < 6000) {
+    } else if (counter * 1.5 < 4200) {
       arr.push(new Obstacle(bX, 0, 200, 5, (6), ctx, '#00F3FF'))
-      arr.push(new Obstacle(bX * (counter % 12 + 2), 0, 140, 7, (7), ctx, '#00D4FF'))
-      arr.push(new Obstacle(bX * (counter % 33), -100, 240, 9, (8), ctx, '#00AEFF'))
-      arr.push(new Obstacle(bX * (counter % 14), 0, 180, 11, (8.5), ctx, '#007CFF'))
+      arr.push(new Obstacle(bX * (counter % 12 + 2), 0, 140, 7, (7), ctx, '#00C9FF'))
+      arr.push(new Obstacle(bX * (counter % 33), -100, 240, 9, (8), ctx, '#00A2FF'))
+      arr.push(new Obstacle(bX * (counter % 14), 0, 180, 11, (8.5), ctx, '#006CFF'))
 
-    } else if (counter * 1.5 < 7000) {
-      arr.push(new Obstacle(bX, 0, 140, 6, (6), ctx, '#005DFF'))
-      arr.push(new Obstacle(bX * (counter % 12 + 2), 0, 200, 8, (7), ctx, '#0036FF'))
-      arr.push(new Obstacle(bX * (counter % 33), 0, 330, 12, (8.5), ctx, '#0000FF'))
-      arr.push(new Obstacle(bX * Math.floor(counter % 14), -100, 180, 14, (9), ctx, '#2E00FF'))
+    } else if (counter * 1.5 < 5000) {
+      arr.push(new Obstacle(bX, 0, 140, 6, (6), ctx, '#0051FF'))
+      arr.push(new Obstacle(bX * (counter % 12 + 2), 0, 200, 8, (7), ctx, '#0027FF'))
+      arr.push(new Obstacle(bX * (counter % 33), 0, 330, 12, (8.5), ctx, '#3A00FF'))
+      arr.push(new Obstacle(bX * Math.floor(counter % 14), -100, 180, 14, (9), ctx, '#6100FF'))
 
-    } else if (counter * 1.5 < 8000) {
-      arr.push(new Obstacle(bX, 0, 140, 6, (6), ctx, '#FF00AE'))
-      arr.push(new Obstacle(bX * (counter % 12 + 2), 0, 200, 8, (7), ctx, '#C24DFD'))
-      arr.push(new Obstacle(bX * (counter % 33), 0, 330, 12, (8.5), ctx, '#FD53C7'))
-      arr.push(new Obstacle(bX * Math.floor(counter % 14), -100, 180, 14, (9), ctx, '#0C00FF'))
+    } else if (counter * 1.5 < 5800) {
+      arr.push(new Obstacle(bX, 0, 140, 6, (6), ctx, '#8F00FF'))
+      arr.push(new Obstacle(bX * (counter % 12 + 2), 0, 200, 8, (7), ctx, '#C500FF'))
+      arr.push(new Obstacle(bX * (counter % 33), 0, 330, 12, (8.5), ctx, '#EC00FF'))
+      arr.push(new Obstacle(bX * Math.floor(counter % 14), -100, 180, 14, (9), ctx, '#FF00AE'))
 
-    } else if (counter * 1.5 < 10000) {
-      arr.push(new Obstacle(bX, 0, 140, 4, (8), ctx, "cyan"))
-      arr.push(new Obstacle(bX * (counter % 12 + 2), 0, 280, 5, (9), ctx, "blue"))
-      arr.push(new Obstacle(bX * Math.floor(counter % 63 / 7), 0, 280, 9, (9.5), ctx, "lime"))
+    } else if (counter * 1.5 < 6600) {
+      arr.push(new Obstacle(bX, 0, 140, 4, (8), ctx, "#C24DFD"))
+      arr.push(new Obstacle(bX * (counter % 12 + 2), 0, 280, 5, (9), ctx, "#FF00AE"))
+      arr.push(new Obstacle(bX * Math.floor(counter % 63 / 7), 0, 280, 9, (9.5), ctx, "#FD53C7"))
       arr.push(new Obstacle(bX * (counter % 33), 0, 330, 11, (10), ctx, randomColor))
       arr.push(new Obstacle(bX * Math.floor(counter % 89 / 10), -100, 180, 11, (10.5), ctx, randomColor))
 
